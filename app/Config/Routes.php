@@ -17,4 +17,5 @@ $routes->get('/pelanggan', 'PelangganController::index');
 
 
 // FIROH =======================
-$routes->get('/barang_laundry', '');
+$routes->get('/barang_laundry', 'BarangLaundryController');
+$routes->get('/laporan', 'LaporanController');
