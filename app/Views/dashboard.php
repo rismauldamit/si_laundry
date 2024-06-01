@@ -310,14 +310,14 @@
       </li><!-- End Register Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-login.html">
+        <a class="nav-link collapsed" href="/barang_laundry">
           <i class="bi bi-box-arrow-in-right"></i>
           <span>Barang Laundry</span>
         </a>
       </li><!-- End Login Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-error-404.html">
+        <a class="nav-link collapsed" href="/laporan">
           <i class="bi bi-dash-circle"></i>
           <span>Laporan Laundry</span>
         </a>
@@ -332,10 +332,6 @@
     <div class="pagetitle">
       <h1>Dashboard</h1>
       <nav>
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-          <li class="breadcrumb-item active">Dashboard</li>
-        </ol>
       </nav>
     </div><!-- End Page Title -->
 
