@@ -5,10 +5,10 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use CodeIgniter\HTTP\ResponseInterface;
 
-class BarangController extends BaseController
+class JenisLaundryController extends BaseController
 {
     public function index()
     {
-        return view('barang');
+        return view('jenis_laundry');
     }
 }
