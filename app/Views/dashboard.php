@@ -10,10 +10,6 @@
 <section class="section dashboard">
   <div class="row">
 
-<<<<<<< HEAD
-    <!-- Left side columns -->
-    <div class="col-lg-12">
-=======
   <title>Mama Laundry</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
@@ -48,14 +44,13 @@
 </head>
 
 <body>
-
   <!-- ======= Header ======= -->
   <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
       <a href="index.html" class="logo d-flex align-items-center">
         <img src="assets/img/logo.png" alt="">
-        <span class="d-none d-lg-block">Mama Laundry</span>
+        <span class="d-none d-lg-block">Mama Laundry haha</span>
       </a>
     </div><!-- End Logo -->
 
@@ -172,7 +167,6 @@
     </div><!-- End Page Title -->
 
     <section class="section dashboard">
->>>>>>> d19b0de01758a1f441f354034ccd0d808363bc2c
       <div class="row">
 
         <!-- Sales Card -->
