@@ -9,6 +9,6 @@ class PembelianBarangController extends BaseController
 {
     public function index()
     {
-        return view('pembelian_barang');
+        return view('persediaan');
     }
 }

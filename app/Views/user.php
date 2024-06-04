@@ -1,11 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    sdfgh
-</body>
-</html>
+<?= $this->extend('layout/karyawan_layout'); ?>
+<?= $this->section('content'); ?>
+<main id="main" class="main">
+<div class="pagetitle">
+  <h1>User</h1>
+  <nav>
+  </nav>
+</div>
+
+
+</main>
+<?= $this->endSection(); ?>
