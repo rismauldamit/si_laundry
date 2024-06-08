@@ -17,5 +17,6 @@ $routes->get('/jenis_laundry', 'JenisLaundryController::index');
 
 
 // FIROH =======================
-$routes->get('/barang_laundry', 'BarangLaundryController');
+$routes->get('/transaksi', 'TransaksiController::index');
+$routes->get('/transaksi/tambah', 'TransaksiController::tambah');
 $routes->get('/laporan', 'LaporanController');

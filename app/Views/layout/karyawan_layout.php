@@ -138,9 +138,9 @@
       </li><!-- End Register Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="/barang_laundry">
+        <a class="nav-link collapsed" href="/transaksi">
         <i class='bx bxs-t-shirt'></i>
-          <span>Barang Laundry</span>
+          <span>Transaksi</span>
         </a>
       </li><!-- End Login Page Nav -->
 

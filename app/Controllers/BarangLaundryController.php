@@ -9,6 +9,6 @@ class BarangLaundryController extends BaseController
 {
     public function index()
     {
-        return view('barang_laundry');
+        return view('');
     }
 }
