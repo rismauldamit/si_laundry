@@ -30,9 +30,6 @@
 </head>
 
 <body>
-
-
-
     <!-- Topbar Start -->
     <div class="container-fluid bg-primary px-5 d-none d-lg-block">
         <div class="row gx-0">
@@ -1231,7 +1228,7 @@
                     <div class="row g-2">
                         <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
                             <div class="gallery-item h-100">
-                                <img src="img/gallery-2.jpg" class="img-fluid w-100 h-100 rounded" alt="Image">
+                                <img src="assets/travela/img/gallery-2.jpg" class="img-fluid w-100 h-100 rounded" alt="Image">
                                 <div class="gallery-content">
                                     <div class="gallery-info">
                                         <h5 class="text-white text-uppercase mb-2">World Tour</h5>
@@ -1239,7 +1236,7 @@
                                     </div>
                                 </div>
                                 <div class="gallery-plus-icon">
-                                    <a href="img/gallery-2.jpg" data-lightbox="gallery-2" class="my-auto"><i class="fas fa-plus fa-2x text-white"></i></a>
+                                    <a href="assets/travela/img/gallery-2.jpg" data-lightbox="gallery-2" class="my-auto"><i class="fas fa-plus fa-2x text-white"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -1785,14 +1782,14 @@
     <!-- JavaScript Libraries -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="lib/lightbox/js/lightbox.min.js"></script>
+    <script src="assets/travela/lib/easing/easing.min.js"></script>
+    <script src="assets/travela/lib/waypoints/waypoints.min.js"></script>
+    <script src="assets/travela/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="assets/travela/lib/lightbox/js/lightbox.min.js"></script>
 
 
     <!-- Template Javascript -->
-    <script src="js/main.js"></script>
+    <script src="assets/travela/js/main.js"></script>
 </body>
 
 </html>
