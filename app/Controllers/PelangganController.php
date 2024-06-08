@@ -11,4 +11,9 @@ class PelangganController extends BaseController
     {
         return view('pelanggan');
     }
+
+    public function tambah()
+    {
+        return view('tambah_pelanggan');
+    }
 }
