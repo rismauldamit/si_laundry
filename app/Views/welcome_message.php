@@ -1,331 +1,1798 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Welcome to CodeIgniter 4!</title>
-    <meta name="description" content="The small framework with powerful features">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" type="image/png" href="/favicon.ico">
+    <meta charset="utf-8">
+    <title>Travela - Tourism Website Template</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
 
-    <!-- STYLES -->
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600&family=Roboto&display=swap" rel="stylesheet">
 
-    <style {csp-style-nonce}>
-        * {
-            transition: background-color 300ms ease, color 300ms ease;
-        }
-        *:focus {
-            background-color: rgba(221, 72, 20, .2);
-            outline: none;
-        }
-        html, body {
-            color: rgba(33, 37, 41, 1);
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
-            font-size: 16px;
-            margin: 0;
-            padding: 0;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            text-rendering: optimizeLegibility;
-        }
-        header {
-            background-color: rgba(247, 248, 249, 1);
-            padding: .4rem 0 0;
-        }
-        .menu {
-            padding: .4rem 2rem;
-        }
-        header ul {
-            border-bottom: 1px solid rgba(242, 242, 242, 1);
-            list-style-type: none;
-            margin: 0;
-            overflow: hidden;
-            padding: 0;
-            text-align: right;
-        }
-        header li {
-            display: inline-block;
-        }
-        header li a {
-            border-radius: 5px;
-            color: rgba(0, 0, 0, .5);
-            display: block;
-            height: 44px;
-            text-decoration: none;
-        }
-        header li.menu-item a {
-            border-radius: 5px;
-            margin: 5px 0;
-            height: 38px;
-            line-height: 36px;
-            padding: .4rem .65rem;
-            text-align: center;
-        }
-        header li.menu-item a:hover,
-        header li.menu-item a:focus {
-            background-color: rgba(221, 72, 20, .2);
-            color: rgba(221, 72, 20, 1);
-        }
-        header .logo {
-            float: left;
-            height: 44px;
-            padding: .4rem .5rem;
-        }
-        header .menu-toggle {
-            display: none;
-            float: right;
-            font-size: 2rem;
-            font-weight: bold;
-        }
-        header .menu-toggle button {
-            background-color: rgba(221, 72, 20, .6);
-            border: none;
-            border-radius: 3px;
-            color: rgba(255, 255, 255, 1);
-            cursor: pointer;
-            font: inherit;
-            font-size: 1.3rem;
-            height: 36px;
-            padding: 0;
-            margin: 11px 0;
-            overflow: visible;
-            width: 40px;
-        }
-        header .menu-toggle button:hover,
-        header .menu-toggle button:focus {
-            background-color: rgba(221, 72, 20, .8);
-            color: rgba(255, 255, 255, .8);
-        }
-        header .heroe {
-            margin: 0 auto;
-            max-width: 1100px;
-            padding: 1rem 1.75rem 1.75rem 1.75rem;
-        }
-        header .heroe h1 {
-            font-size: 2.5rem;
-            font-weight: 500;
-        }
-        header .heroe h2 {
-            font-size: 1.5rem;
-            font-weight: 300;
-        }
-        section {
-            margin: 0 auto;
-            max-width: 1100px;
-            padding: 2.5rem 1.75rem 3.5rem 1.75rem;
-        }
-        section h1 {
-            margin-bottom: 2.5rem;
-        }
-        section h2 {
-            font-size: 120%;
-            line-height: 2.5rem;
-            padding-top: 1.5rem;
-        }
-        section pre {
-            background-color: rgba(247, 248, 249, 1);
-            border: 1px solid rgba(242, 242, 242, 1);
-            display: block;
-            font-size: .9rem;
-            margin: 2rem 0;
-            padding: 1rem 1.5rem;
-            white-space: pre-wrap;
-            word-break: break-all;
-        }
-        section code {
-            display: block;
-        }
-        section a {
-            color: rgba(221, 72, 20, 1);
-        }
-        section svg {
-            margin-bottom: -5px;
-            margin-right: 5px;
-            width: 25px;
-        }
-        .further {
-            background-color: rgba(247, 248, 249, 1);
-            border-bottom: 1px solid rgba(242, 242, 242, 1);
-            border-top: 1px solid rgba(242, 242, 242, 1);
-        }
-        .further h2:first-of-type {
-            padding-top: 0;
-        }
-        .svg-stroke {
-            fill: none;
-            stroke: #000;
-            stroke-width: 32px;
-        }
-        footer {
-            background-color: rgba(221, 72, 20, .8);
-            text-align: center;
-        }
-        footer .environment {
-            color: rgba(255, 255, 255, 1);
-            padding: 2rem 1.75rem;
-        }
-        footer .copyrights {
-            background-color: rgba(62, 62, 62, 1);
-            color: rgba(200, 200, 200, 1);
-            padding: .25rem 1.75rem;
-        }
-        @media (max-width: 629px) {
-            header ul {
-                padding: 0;
-            }
-            header .menu-toggle {
-                padding: 0 1rem;
-            }
-            header .menu-item {
-                background-color: rgba(244, 245, 246, 1);
-                border-top: 1px solid rgba(242, 242, 242, 1);
-                margin: 0 15px;
-                width: calc(100% - 30px);
-            }
-            header .menu-toggle {
-                display: block;
-            }
-            header .hidden {
-                display: none;
-            }
-            header li.menu-item a {
-                background-color: rgba(221, 72, 20, .1);
-            }
-            header li.menu-item a:hover,
-            header li.menu-item a:focus {
-                background-color: rgba(221, 72, 20, .7);
-                color: rgba(255, 255, 255, .8);
-            }
-        }
-    </style>
+    <!-- Icon Font Stylesheet -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="assets/travela/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="assets/travela/css/style.css" rel="stylesheet">
 </head>
+
 <body>
 
-<!-- HEADER: MENU + HEROE SECTION -->
-<header>
 
-    <div class="menu">
-        <ul>
-            <li class="logo">
-                <a href="https://codeigniter.com" target="_blank">
-                    <svg role="img" aria-label="Visit CodeIgniter.com official website!" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2100 500" height="44"><path fill="#dd4814" d="M148.2 411c-20.53-9.07-34.48-28.61-36.31-50.99 1.2-23.02 13.36-44.06 32.67-56.61-3.17 7.73-2.4 16.53 2 23.6 5.01 7 13.63 10.36 22.07 8.61 12.02-3.38 19.06-15.86 15.68-27.89-1.2-4.21-3.6-8.03-6.88-10.91-13.6-11.06-20.43-28.44-18-45.81 2.33-9.2 7.42-17.52 14.61-23.8-5.4 14.4 9.83 28.61 20.05 35.6 18.14 10.88 35.6 22.84 52.32 35.81 18.27 14.4 28.23 36.94 26.67 60-4.11 24.54-21.47 44.8-45.13 52.4 47.33-10.53 96.13-48.13 97.06-101.46-.93-42.67-26.4-80.96-65.33-98.4h-1.73c.86 2.09 1.28 4.34 1.2 6.61.13-1.47.13-2.93 0-4.4.21 1.73.21 3.47 0 5.2-2.96 12.13-15.2 19.6-27.36 16.64-4.86-1.2-9.2-3.93-12.32-7.87-15.6-20 0-42.76 2.61-64.76 1.6-28.13-11.25-55.02-34.05-71.46 11.41 19.02-3.79 44-14.84 58.21-11.07 14.21-27.07 24.8-40.11 37.2-14.05 13.07-26.93 27.44-38.49 42.8-24.99 30.53-34.8 70.8-26.67 109.4 11.15 37.2 42.07 65.15 80.2 72.4h.21l-.13-.12Zm324.56-159.8q0-17.92 6.16-35.56 6.44-17.92 18.48-31.92t29.68-22.68q17.64-8.96 40.04-8.96 26.6 0 45.36 12.04 19.04 12.04 28 31.36l-15.4 9.52q-4.76-9.8-11.76-16.52-6.72-6.72-14.56-10.92-7.84-4.2-16.24-5.88-8.4-1.96-16.52-1.96-17.92 0-31.64 7.28-13.72 7.28-23.24 19.04-9.24 11.76-14 26.6-4.76 14.56-4.76 29.68 0 16.52 5.6 31.64 5.88 15.12 15.68 26.88 10.08 11.48 23.52 18.48 13.72 6.72 29.68 6.72 8.4 0 17.08-1.96 8.96-2.24 17.08-6.72 8.4-4.76 15.4-11.48 7-7 11.76-16.8l16.24 8.4q-4.76 11.2-13.44 19.88-8.68 8.4-19.32 14.28-10.64 5.88-22.68 8.96-11.76 3.08-23.24 3.08-20.44 0-37.52-8.96-17.08-8.96-29.4-23.24-12.32-14.56-19.32-32.76-6.72-18.48-6.72-37.52Zm263.48 103.6q-15.96 0-29.12-5.88-13.16-6.16-22.96-16.52-9.52-10.36-14.84-24.08Q664 294.6 664 279.48q0-15.4 5.32-29.12 5.6-13.72 15.12-24.08 9.8-10.36 22.96-16.52t28.84-6.16q15.68 0 28.84 6.16 13.44 6.16 22.96 16.52 9.8 10.36 15.12 24.08 5.6 13.72 5.6 29.12 0 15.12-5.32 28.84t-15.12 24.08q-9.52 10.36-22.96 16.52-13.16 5.88-29.12 5.88Zm-52.92-75.04q0 12.32 4.2 22.96 4.2 10.36 11.2 18.48 7.28 7.84 16.8 12.32 9.8 4.48 20.72 4.48 10.92 0 20.44-4.48 9.8-4.76 17.08-12.6 7.28-8.12 11.48-18.76 4.2-10.64 4.2-22.96 0-12.04-4.2-22.68-4.2-10.92-11.48-18.76-7.28-8.12-17.08-12.6-9.52-4.76-20.44-4.76-10.92 0-20.44 4.76-9.52 4.48-16.8 12.6-7.28 8.12-11.48 19.04-4.2 10.64-4.2 22.96ZM900.6 354.8q-15.12 0-28-6.16-12.88-6.44-22.12-16.8t-14.56-23.8q-5.04-13.72-5.04-28.56 0-15.4 5.04-29.12 5.04-14 13.72-24.36 8.96-10.36 21-16.24 12.32-6.16 26.88-6.16 18.48 0 32.76 9.8 14.28 9.52 22.4 23.24V147.6h19.04v179.76q0 7.84 6.72 7.84V352q-4.2.84-6.72.84-6.72 0-11.76-4.2-5.04-4.48-5.04-10.64v-14.28Q946.24 338 931.4 346.4t-30.8 8.4Zm4.2-16.8q7 0 14.84-2.8 8.12-2.8 15.12-7.56 7-5.04 11.76-11.48 5.04-6.72 6.16-14.28V256.8q-2.8-7.56-8.12-14-5.32-6.72-12.32-11.76-6.72-5.04-14.56-7.84-7.84-2.8-15.4-2.8-11.76 0-21.28 5.04-9.52 5.04-16.52 13.44-6.72 8.12-10.36 18.76-3.64 10.64-3.64 21.84 0 11.76 4.2 22.4 4.2 10.64 11.48 18.76 7.28 7.84 17.08 12.6Q893.32 338 904.8 338Zm173.04 16.8q-15.96 0-29.4-5.88-13.16-6.16-22.96-16.52-9.8-10.64-15.4-24.36-5.32-13.72-5.32-29.4 0-15.4 5.32-28.84 5.6-13.72 15.12-23.8 9.8-10.36 23.24-16.24 13.44-6.16 29.12-6.16 15.96 0 29.12 6.16 13.44 5.88 22.96 16.24 9.52 10.36 14.84 23.8 5.32 13.44 5.32 28.56v4.48q0 2.24-.28 3.08h-124.88q.84 11.76 5.32 21.84 4.76 9.8 12.04 17.08 7.28 7.28 16.52 11.48 9.52 3.92 20.16 3.92 7 0 14-1.96t12.88-5.32q5.88-3.36 10.64-8.12 4.76-5.04 7.28-10.92l16.52 4.48q-3.36 8.12-9.52 14.84-6.16 6.44-14.28 11.48-8.12 4.76-17.92 7.56-9.8 2.52-20.44 2.52Zm-53.48-83.44h107.24q-.84-11.76-5.6-21.28-4.48-9.8-11.76-16.8-7-7-16.52-10.92-9.24-3.92-19.88-3.92-10.64 0-20.16 3.92t-16.8 10.92q-7 7-11.48 16.8-4.2 9.8-5.04 21.28Zm193.2 80.64h-38.64V153.2h38.64V352Zm93.52.84q-14.84 0-26.88-5.88t-21-15.96q-8.68-10.36-13.44-23.8-4.76-13.44-4.76-28.56 0-15.96 5.04-29.68 5.04-13.72 14-24.08 8.96-10.36 21.56-16.24 12.6-5.88 27.72-5.88 17.08 0 29.96 7.84 12.88 7.56 21.28 20.44v-25.76h32.76V345q0 16.24-6.16 29.12-6.16 12.88-17.08 21.84-10.64 8.96-25.76 13.72-14.84 4.76-32.48 4.76-24.08 0-40.6-7.84-16.24-8.12-28-22.68l20.44-19.88q8.4 10.36 21 16.24 12.88 5.88 27.16 5.88 8.68 0 16.52-2.24 8.12-2.52 14.28-7.56 6.16-5.04 9.52-12.88 3.64-7.84 3.64-18.48v-18.48q-7.28 12.6-20.44 19.6-13.16 6.72-28.28 6.72Zm12.6-29.96q6.16 0 11.76-1.96t10.36-5.32q4.76-3.36 8.4-7.84 3.64-4.48 5.6-9.52v-35q-5.04-12.88-15.96-20.72-10.64-7.84-22.4-7.84-8.68 0-15.68 3.92-7 3.64-12.04 10.08-5.04 6.16-7.84 14.28-2.52 8.12-2.52 16.8 0 8.96 3.08 16.8t8.4 13.72q5.6 5.88 12.88 9.24 7.28 3.36 15.96 3.36Zm243.88-62.44V352h-37.52v-82.32q0-17.64-6.16-25.76-6.16-8.12-17.08-8.12-5.6 0-11.48 2.24-5.88 2.24-11.2 6.44-5.04 3.92-9.24 9.52t-6.16 12.32V352h-37.52V205.28h33.88v27.16q8.12-14 23.52-21.84t34.72-7.84q13.72 0 22.4 5.04 8.68 5.04 13.44 13.16 4.76 8.12 6.44 18.48 1.96 10.36 1.96 21Zm70.28 91.56h-37.52V205.28h37.52V352Zm0-167.16h-37.52V147.6h37.52v37.24Zm114.24 129.92 7.56 29.68q-7.56 3.36-18.48 6.72-10.92 3.36-22.96 3.36-7.84 0-14.84-1.96-6.72-1.96-12.04-6.16-5.04-4.48-8.12-11.2-3.08-7-3.08-16.8v-84.28h-19.32v-28.84h19.32v-47.6h37.52v47.6h30.8v28.84h-30.8v71.68q0 7.84 3.92 11.2 4.2 3.08 10.08 3.08t11.48-1.96q5.6-1.96 8.96-3.36Zm91.56 40.04q-17.64 0-31.92-5.88-14.28-6.16-24.36-16.52t-15.68-24.08q-5.32-13.72-5.32-28.84 0-15.68 5.32-29.4 5.32-14 15.4-24.36 10.08-10.64 24.36-16.8 14.56-6.16 32.48-6.16 17.92 0 31.92 6.16 14.28 6.16 24.08 16.52 10.08 10.36 15.12 24.08 5.32 13.72 5.32 28.56 0 3.64-.28 7 0 3.36-.56 5.6h-113.4q.84 8.68 4.2 15.4 3.36 6.72 8.68 11.48 5.32 4.76 12.04 7.28 6.72 2.52 14 2.52 11.2 0 21-5.32 10.08-5.6 13.72-14.56l32.2 8.96q-8.12 16.8-26.04 27.72-17.64 10.64-42.28 10.64Zm-38.08-88.48h76.16q-1.4-16.52-12.32-26.32-10.64-10.08-26.04-10.08-7.56 0-14.28 2.8-6.44 2.52-11.48 7.28t-8.4 11.48q-3.08 6.72-3.64 14.84Zm225.12-62.72v34.16q-17.08.28-30.52 6.72-13.44 6.16-19.32 18.76V352h-37.52V205.28h34.44v31.36q3.92-7.56 9.24-13.44 5.32-6.16 11.48-10.64t12.32-6.72q6.44-2.52 12.32-2.52h4.48q1.68 0 3.08.28Z"/></svg>
-                </a>
-            </li>
-            <li class="menu-toggle">
-                <button id="menuToggle">&#9776;</button>
-            </li>
-            <li class="menu-item hidden"><a href="#">Home</a></li>
-            <li class="menu-item hidden"><a href="https://codeigniter.com/user_guide/" target="_blank">Docs</a>
-            </li>
-            <li class="menu-item hidden"><a href="https://forum.codeigniter.com/" target="_blank">Community</a></li>
-            <li class="menu-item hidden"><a
-                    href="https://codeigniter.com/contribute" target="_blank">Contribute</a>
-            </li>
-        </ul>
+
+    <!-- Topbar Start -->
+    <div class="container-fluid bg-primary px-5 d-none d-lg-block">
+        <div class="row gx-0">
+            <div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
+                <div class="d-inline-flex align-items-center" style="height: 45px;">
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i class="fab fa-twitter fw-normal"></i></a>
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i class="fab fa-facebook-f fw-normal"></i></a>
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i class="fab fa-linkedin-in fw-normal"></i></a>
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i class="fab fa-instagram fw-normal"></i></a>
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle" href=""><i class="fab fa-youtube fw-normal"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-4 text-center text-lg-end">
+                <div class="d-inline-flex align-items-center" style="height: 45px;">
+                    <a href="#"><small class="me-3 text-light"><i class="fa fa-user me-2"></i>Register</small></a>
+                    <a href="#"><small class="me-3 text-light"><i class="fa fa-sign-in-alt me-2"></i>Login</small></a>
+                    <div class="dropdown">
+                        <a href="#" class="dropdown-toggle text-light" data-bs-toggle="dropdown"><small><i class="fa fa-home me-2"></i> My Dashboard</small></a>
+                        <div class="dropdown-menu rounded">
+                            <a href="#" class="dropdown-item"><i class="fas fa-user-alt me-2"></i> My Profile</a>
+                            <a href="#" class="dropdown-item"><i class="fas fa-comment-alt me-2"></i> Inbox</a>
+                            <a href="#" class="dropdown-item"><i class="fas fa-bell me-2"></i> Notifications</a>
+                            <a href="#" class="dropdown-item"><i class="fas fa-cog me-2"></i> Account Settings</a>
+                            <a href="#" class="dropdown-item"><i class="fas fa-power-off me-2"></i> Log Out</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+    <!-- Topbar End -->
 
-    <div class="heroe">
+    <!-- Navbar & Hero Start -->
+    <div class="container-fluid position-relative p-0">
+        <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
+            <a href="" class="navbar-brand p-0">
+                <h1 class="m-0"><i class="fa fa-map-marker-alt me-3"></i>Travela</h1>
+                <!-- <img src="img/logo.png" alt="Logo"> -->
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="fa fa-bars"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto py-0">
+                    <a href="index.html" class="nav-item nav-link active">Home</a>
+                    <a href="about.html" class="nav-item nav-link">About</a>
+                    <a href="services.html" class="nav-item nav-link">Services</a>
+                    <a href="packages.html" class="nav-item nav-link">Packages</a>
+                    <a href="blog.html" class="nav-item nav-link">Blog</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                        <div class="dropdown-menu m-0">
+                            <a href="destination.html" class="dropdown-item">Destination</a>
+                            <a href="tour.html" class="dropdown-item">Explore Tour</a>
+                            <a href="booking.html" class="dropdown-item">Travel Booking</a>
+                            <a href="gallery.html" class="dropdown-item">Our Gallery</a>
+                            <a href="guides.html" class="dropdown-item">Travel Guides</a>
+                            <a href="testimonial.html" class="dropdown-item">Testimonial</a>
+                            <a href="404.html" class="dropdown-item">404 Page</a>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="nav-item nav-link">Contact</a>
+                </div>
+                <a href="" class="btn btn-primary rounded-pill py-2 px-4 ms-lg-4">Book Now</a>
+            </div>
+        </nav>
 
-        <h1>Welcome to CodeIgniter <?= CodeIgniter\CodeIgniter::CI_VERSION ?></h1>
-
-        <h2>The small framework with powerful features</h2>
-
+        <!-- Carousel Start -->
+        <div class="carousel-header">
+            <div id="carouselId" class="carousel slide" data-bs-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-bs-target="#carouselId" data-bs-slide-to="0" class="active"></li>
+                    <li data-bs-target="#carouselId" data-bs-slide-to="1"></li>
+                    <li data-bs-target="#carouselId" data-bs-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner" role="listbox">
+                    <div class="carousel-item active">
+                        <img src="img/carousel-2.jpg" class="img-fluid" alt="Image">
+                        <div class="carousel-caption">
+                            <div class="p-3" style="max-width: 900px;">
+                                <h4 class="text-white text-uppercase fw-bold mb-4" style="letter-spacing: 3px;">Explore The World</h4>
+                                <h1 class="display-2 text-capitalize text-white mb-4">Let's The World Together!</h1>
+                                <p class="mb-5 fs-5">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                                </p>
+                                <div class="d-flex align-items-center justify-content-center">
+                                    <a class="btn-hover-bg btn btn-primary rounded-pill text-white py-3 px-5" href="#">Discover Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="img/carousel-1.jpg" class="img-fluid" alt="Image">
+                        <div class="carousel-caption">
+                            <div class="p-3" style="max-width: 900px;">
+                                <h4 class="text-white text-uppercase fw-bold mb-4" style="letter-spacing: 3px;">Explore The World</h4>
+                                <h1 class="display-2 text-capitalize text-white mb-4">Find Your Perfect Tour At Travel</h1>
+                                <p class="mb-5 fs-5">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                                </p>
+                                <div class="d-flex align-items-center justify-content-center">
+                                    <a class="btn-hover-bg btn btn-primary rounded-pill text-white py-3 px-5" href="#">Discover Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="img/carousel-3.jpg" class="img-fluid" alt="Image">
+                        <div class="carousel-caption">
+                            <div class="p-3" style="max-width: 900px;">
+                                <h4 class="text-white text-uppercase fw-bold mb-4" style="letter-spacing: 3px;">Explore The World</h4>
+                                <h1 class="display-2 text-capitalize text-white mb-4">You Like To Go?</h1>
+                                <p class="mb-5 fs-5">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                                </p>
+                                <div class="d-flex align-items-center justify-content-center">
+                                    <a class="btn-hover-bg btn btn-primary rounded-pill text-white py-3 px-5" href="#">Discover Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselId" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon btn bg-primary" aria-hidden="false"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselId" data-bs-slide="next">
+                    <span class="carousel-control-next-icon btn bg-primary" aria-hidden="false"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+        <!-- Carousel End -->
     </div>
-
-</header>
-
-<!-- CONTENT -->
-
-<section>
-
-    <h1>About this page</h1>
-
-    <p>The page you are looking at is being generated dynamically by CodeIgniter.</p>
-
-    <p>If you would like to edit this page you will find it located at:</p>
-
-    <pre><code>app/Views/welcome_message.php</code></pre>
-
-    <p>The corresponding controller for this page can be found at:</p>
-
-    <pre><code>app/Controllers/Home.php</code></pre>
-
-</section>
-
-<div class="further">
-
-    <section>
-
-        <h1>Go further</h1>
-
-        <h2>
-            <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><rect x='32' y='96' width='64' height='368' rx='16' ry='16' class="svg-stroke" /><line x1='112' y1='224' x2='240' y2='224' class="svg-stroke" /><line x1='112' y1='400' x2='240' y2='400' class="svg-stroke" /><rect x='112' y='160' width='128' height='304' rx='16' ry='16' class="svg-stroke" /><rect x='256' y='48' width='96' height='416' rx='16' ry='16' class="svg-stroke" /><path d='M422.46,96.11l-40.4,4.25c-11.12,1.17-19.18,11.57-17.93,23.1l34.92,321.59c1.26,11.53,11.37,20,22.49,18.84l40.4-4.25c11.12-1.17,19.18-11.57,17.93-23.1L445,115C443.69,103.42,433.58,94.94,422.46,96.11Z' class="svg-stroke"/></svg>
-            Learn
-        </h2>
-
-        <p>The User Guide contains an introduction, tutorial, a number of "how to"
-            guides, and then reference documentation for the components that make up
-            the framework. Check the <a href="https://codeigniter.com/user_guide/"
-            target="_blank">User Guide</a> !</p>
-
-        <h2>
-            <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><path d='M431,320.6c-1-3.6,1.2-8.6,3.3-12.2a33.68,33.68,0,0,1,2.1-3.1A162,162,0,0,0,464,215c.3-92.2-77.5-167-173.7-167C206.4,48,136.4,105.1,120,180.9a160.7,160.7,0,0,0-3.7,34.2c0,92.3,74.8,169.1,171,169.1,15.3,0,35.9-4.6,47.2-7.7s22.5-7.2,25.4-8.3a26.44,26.44,0,0,1,9.3-1.7,26,26,0,0,1,10.1,2L436,388.6a13.52,13.52,0,0,0,3.9,1,8,8,0,0,0,8-8,12.85,12.85,0,0,0-.5-2.7Z' class="svg-stroke" /><path d='M66.46,232a146.23,146.23,0,0,0,6.39,152.67c2.31,3.49,3.61,6.19,3.21,8s-11.93,61.87-11.93,61.87a8,8,0,0,0,2.71,7.68A8.17,8.17,0,0,0,72,464a7.26,7.26,0,0,0,2.91-.6l56.21-22a15.7,15.7,0,0,1,12,.2c18.94,7.38,39.88,12,60.83,12A159.21,159.21,0,0,0,284,432.11' class="svg-stroke" /></svg>
-            Discuss
-        </h2>
-
-        <p>CodeIgniter is a community-developed open source project, with several
-             venues for the community members to gather and exchange ideas. View all
-             the threads on <a href="https://forum.codeigniter.com/"
-             target="_blank">CodeIgniter's forum</a>, or <a href="https://join.slack.com/t/codeigniterchat/shared_invite/zt-rl30zw00-obL1Hr1q1ATvkzVkFp8S0Q"
-             target="_blank">chat on Slack</a> !</p>
-
-        <h2>
-        <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><line x1='176' y1='48' x2='336' y2='48' class="svg-stroke" /><line x1='118' y1='304' x2='394' y2='304' class="svg-stroke" /><path d='M208,48v93.48a64.09,64.09,0,0,1-9.88,34.18L73.21,373.49C48.4,412.78,76.63,464,123.08,464H388.92c46.45,0,74.68-51.22,49.87-90.51L313.87,175.66A64.09,64.09,0,0,1,304,141.48V48' class="svg-stroke" /></svg>
-             Contribute
-        </h2>
-
-        <p>CodeIgniter is a community driven project and accepts contributions
-             of code and documentation from the community. Why not
-             <a href="https://codeigniter.com/contribute" target="_blank">
-             join us</a> ?</p>
-
-    </section>
-
-</div>
-
-<!-- FOOTER: DEBUG INFO + COPYRIGHTS -->
-
-<footer>
-    <div class="environment">
-
-        <p>Page rendered in {elapsed_time} seconds using {memory_usage} MB of memory.</p>
-
-        <p>Environment: <?= ENVIRONMENT ?></p>
-
+    <div class="container-fluid search-bar position-relative" style="top: -50%; transform: translateY(-50%);">
+        <div class="container">
+            <div class="position-relative rounded-pill w-100 mx-auto p-5" style="background: rgba(19, 53, 123, 0.8);">
+                <input class="form-control border-0 rounded-pill w-100 py-3 ps-4 pe-5" type="text" placeholder="Eg: Thailand">
+                <button type="button" class="btn btn-primary rounded-pill py-2 px-4 position-absolute me-2" style="top: 50%; right: 46px; transform: translateY(-50%);">Search</button>
+            </div>
+        </div>
     </div>
+    <!-- Navbar & Hero End -->
 
-    <div class="copyrights">
-
-        <p>&copy; <?= date('Y') ?> CodeIgniter Foundation. CodeIgniter is open source project released under the MIT
-            open source licence.</p>
-
+    <!-- About Start -->
+    <div class="container-fluid about py-5">
+        <div class="container py-5">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-5">
+                    <div class="h-100" style="border: 50px solid; border-color: transparent #13357B transparent #13357B;">
+                        <img src="img/about-img.jpg" class="img-fluid w-100 h-100" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-7" style="background: linear-gradient(rgba(255, 255, 255, .8), rgba(255, 255, 255, .8)), url(img/about-img-1.png);">
+                    <h5 class="section-about-title pe-3">About Us</h5>
+                    <h1 class="mb-4">Welcome to <span class="text-primary">Travela</span></h1>
+                    <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, dolorum, doloribus sunt dicta, officia voluptatibus libero necessitatibus natus impedit quam ullam assumenda? Id atque iste consectetur. Commodi odit ab saepe!</p>
+                    <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium quos voluptatem suscipit neque enim, doloribus ipsum rem eos distinctio, dignissimos nisi saepe nulla? Libero numquam perferendis provident placeat molestiae quia?</p>
+                    <div class="row gy-2 gx-4 mb-4">
+                        <div class="col-sm-6">
+                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>First Class Flights</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Handpicked Hotels</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>5 Star Accommodations</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Latest Model Vehicles</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>150 Premium City Tours</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>24/7 Service</p>
+                        </div>
+                    </div>
+                    <a class="btn btn-primary rounded-pill py-3 px-5 mt-2" href="">Read More</a>
+                </div>
+            </div>
+        </div>
     </div>
+    <!-- About End -->
 
-</footer>
+    <!-- Services Start -->
+    <div class="container-fluid bg-light service py-5">
+        <div class="container py-5">
+            <div class="mx-auto text-center mb-5" style="max-width: 900px;">
+                <h5 class="section-title px-3">Searvices</h5>
+                <h1 class="mb-0">Our Services</h1>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="row g-4">
+                        <div class="col-12">
+                            <div class="service-content-inner d-flex align-items-center bg-white border border-primary rounded p-4 pe-0">
+                                <div class="service-content text-end">
+                                    <h5 class="mb-4">WorldWide Tours</h5>
+                                    <p class="mb-0">Dolor sit amet consectetur adipisicing elit. Non alias eum, suscipit expedita corrupti officiis debitis possimus nam laudantium beatae quidem dolore consequuntur voluptate rem reiciendis, omnis sequi harum earum.
+                                    </p>
+                                </div>
+                                <div class="service-icon p-4">
+                                    <i class="fa fa-globe fa-4x text-primary"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="service-content-inner d-flex align-items-center  bg-white border border-primary rounded p-4 pe-0">
+                                <div class="service-content text-end">
+                                    <h5 class="mb-4">Hotel Reservation</h5>
+                                    <p class="mb-0">Dolor sit amet consectetur adipisicing elit. Non alias eum, suscipit expedita corrupti officiis debitis possimus nam laudantium beatae quidem dolore consequuntur voluptate rem reiciendis, omnis sequi harum earum.
+                                    </p>
+                                </div>
+                                <div class="service-icon p-4">
+                                    <i class="fa fa-hotel fa-4x text-primary"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="service-content-inner d-flex align-items-center bg-white border border-primary rounded p-4 pe-0">
+                                <div class="service-content text-end">
+                                    <h5 class="mb-4">Travel Guides</h5>
+                                    <p class="mb-0">Dolor sit amet consectetur adipisicing elit. Non alias eum, suscipit expedita corrupti officiis debitis possimus nam laudantium beatae quidem dolore consequuntur voluptate rem reiciendis, omnis sequi harum earum.
+                                    </p>
+                                </div>
+                                <div class="service-icon p-4">
+                                    <i class="fa fa-user fa-4x text-primary"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="service-content-inner d-flex align-items-center bg-white border border-primary rounded p-4 pe-0">
+                                <div class="service-content text-end">
+                                    <h5 class="mb-4">Event Management</h5>
+                                    <p class="mb-0">Dolor sit amet consectetur adipisicing elit. Non alias eum, suscipit expedita corrupti officiis debitis possimus nam laudantium beatae quidem dolore consequuntur voluptate rem reiciendis, omnis sequi harum earum.
+                                    </p>
+                                </div>
+                                <div class="service-icon p-4">
+                                    <i class="fa fa-cog fa-4x text-primary"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="row g-4">
+                        <div class="col-12">
+                            <div class="service-content-inner d-flex align-items-center bg-white border border-primary rounded p-4 ps-0">
+                                <div class="service-icon p-4">
+                                    <i class="fa fa-globe fa-4x text-primary"></i>
+                                </div>
+                                <div class="service-content">
+                                    <h5 class="mb-4">WorldWide Tours</h5>
+                                    <p class="mb-0">Dolor sit amet consectetur adipisicing elit. Non alias eum, suscipit expedita corrupti officiis debitis possimus nam laudantium beatae quidem dolore consequuntur voluptate rem reiciendis, omnis sequi harum earum.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="service-content-inner d-flex align-items-center bg-white border border-primary rounded p-4 ps-0">
+                                <div class="service-icon p-4">
+                                    <i class="fa fa-hotel fa-4x text-primary"></i>
+                                </div>
+                                <div class="service-content">
+                                    <h5 class="mb-4">Hotel Reservation</h5>
+                                    <p class="mb-0">Dolor sit amet consectetur adipisicing elit. Non alias eum, suscipit expedita corrupti officiis debitis possimus nam laudantium beatae quidem dolore consequuntur voluptate rem reiciendis, omnis sequi harum earum.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="service-content-inner d-flex align-items-center bg-white border border-primary rounded p-4 ps-0">
+                                <div class="service-icon p-4">
+                                    <i class="fa fa-user fa-4x text-primary"></i>
+                                </div>
+                                <div class="service-content">
+                                    <h5 class="mb-4">Travel Guides</h5>
+                                    <p class="mb-0">Dolor sit amet consectetur adipisicing elit. Non alias eum, suscipit expedita corrupti officiis debitis possimus nam laudantium beatae quidem dolore consequuntur voluptate rem reiciendis, omnis sequi harum earum.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="service-content-inner d-flex align-items-center bg-white border border-primary rounded p-4 ps-0">
+                                <div class="service-icon p-4">
+                                    <i class="fa fa-cog fa-4x text-primary"></i>
+                                </div>
+                                <div class="service-content">
+                                    <h5 class="mb-4">Event Management</h5>
+                                    <p class="mb-0">Dolor sit amet consectetur adipisicing elit. Non alias eum, suscipit expedita corrupti officiis debitis possimus nam laudantium beatae quidem dolore consequuntur voluptate rem reiciendis, omnis sequi harum earum.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="text-center">
+                        <a class="btn btn-primary rounded-pill py-3 px-5 mt-2" href="">Service More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Services End -->
 
-<!-- SCRIPTS -->
+    <!-- Destination Start -->
+    <div class="container-fluid destination py-5">
+        <div class="container py-5">
+            <div class="mx-auto text-center mb-5" style="max-width: 900px;">
+                <h5 class="section-title px-3">Destination</h5>
+                <h1 class="mb-0">Popular Destination</h1>
+            </div>
+            <div class="tab-class text-center">
+                <ul class="nav nav-pills d-inline-flex justify-content-center mb-5">
+                    <li class="nav-item">
+                        <a class="d-flex mx-3 py-2 border border-primary bg-light rounded-pill active" data-bs-toggle="pill" href="#tab-1">
+                            <span class="text-dark" style="width: 150px;">All</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="d-flex py-2 mx-3 border border-primary bg-light rounded-pill" data-bs-toggle="pill" href="#tab-2">
+                            <span class="text-dark" style="width: 150px;">USA</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="d-flex mx-3 py-2 border border-primary bg-light rounded-pill" data-bs-toggle="pill" href="#tab-3">
+                            <span class="text-dark" style="width: 150px;">Canada</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="d-flex mx-3 py-2 border border-primary bg-light rounded-pill" data-bs-toggle="pill" href="#tab-4">
+                            <span class="text-dark" style="width: 150px;">Europe</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="d-flex mx-3 py-2 border border-primary bg-light rounded-pill" data-bs-toggle="pill" href="#tab-5">
+                            <span class="text-dark" style="width: 150px;">China</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="d-flex mx-3 py-2 border border-primary bg-light rounded-pill" data-bs-toggle="pill" href="#tab-6">
+                            <span class="text-dark" style="width: 150px;">Singapore</span>
+                        </a>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <div id="tab-1" class="tab-pane fade show p-0 active">
+                        <div class="row g-4">
+                            <div class="col-xl-8">
+                                <div class="row g-4">
+                                    <div class="col-lg-6">
+                                        <div class="destination-img">
+                                            <img class="img-fluid rounded w-100" src="img/destination-1.jpg" alt="">
+                                            <div class="destination-overlay p-4">
+                                                <a href="#" class="btn btn-primary text-white rounded-pill border py-2 px-3">20 Photos</a>
+                                                <h4 class="text-white mb-2 mt-3">New York City</h4>
+                                                <a href="#" class="btn-hover text-white">View All Place <i class="fa fa-arrow-right ms-2"></i></a>
+                                            </div>
+                                            <div class="search-icon">
+                                                <a href="img/destination-1.jpg" data-lightbox="destination-1"><i class="fa fa-plus-square fa-1x btn btn-light btn-lg-square text-primary"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="destination-img">
+                                            <img class="img-fluid rounded w-100" src="img/destination-2.jpg" alt="">
+                                            <div class="destination-overlay p-4">
+                                                <a href="#" class="btn btn-primary text-white rounded-pill border py-2 px-3">20 Photos</a>
+                                                <h4 class="text-white mb-2 mt-3">Las vegas</h4>
+                                                <a href="#" class="btn-hover text-white">View All Place <i class="fa fa-arrow-right ms-2"></i></a>
+                                            </div>
+                                            <div class="search-icon">
+                                                <a href="img/destination-2.jpg" data-lightbox="destination-2"><i class="fa fa-plus-square fa-1x btn btn-light btn-lg-square text-primary"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="destination-img">
+                                            <img class="img-fluid rounded w-100" src="img/destination-7.jpg" alt="">
+                                            <div class="destination-overlay p-4">
+                                                <a href="#" class="btn btn-primary text-white rounded-pill border py-2 px-3">20 Photos</a>
+                                                <h4 class="text-white mb-2 mt-3">Los angelas</h4>
+                                                <a href="#" class="btn-hover text-white">View All Place <i class="fa fa-arrow-right ms-2"></i></a>
+                                            </div>
+                                            <div class="search-icon">
+                                                <a href="img/destination-7.jpg" data-lightbox="destination-7"><i class="fa fa-plus-square fa-1x btn btn-light btn-lg-square text-primary"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="destination-img">
+                                            <img class="img-fluid rounded w-100" src="img/destination-8.jpg" alt="">
+                                            <div class="destination-overlay p-4">
+                                                <a href="#" class="btn btn-primary text-white rounded-pill border py-2 px-3">20 Photos</a>
+                                                <h4 class="text-white mb-2 mt-3">Los angelas</h4>
+                                                <a href="#" class="btn-hover text-white">View All Place <i class="fa fa-arrow-right ms-2"></i></a>
+                                            </div>
+                                            <div class="search-icon">
+                                                <a href="img/destination-8.jpg" data-lightbox="destination-8"><i class="fa fa-plus-square fa-1x btn btn-light btn-lg-square text-primary"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-4">
+                                <div class="destination-img h-100">
+                                    <img class="img-fluid rounded w-100 h-100" src="img/destination-9.jpg" style="object-fit: cover; min-height: 300px;" alt="">
+                                    <div class="destination-overlay p-4">
+                                        <a href="#" class="btn btn-primary text-white rounded-pill border py-2 px-3">20 Photos</a>
+                                        <h4 class="text-white mb-2 mt-3">San francisco</h4>
+                                        <a href="#" class="btn-hover text-white">View All Place <i class="fa fa-arrow-right ms-2"></i></a>
+                                    </div>
+                                    <div class="search-icon">
+                                        <a href="img/destination-9.jpg" data-lightbox="destination-4"><i class="fa fa-plus-square fa-1x btn btn-light btn-lg-square text-primary"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="destination-img">
+                                    <img class="img-fluid rounded w-100" src="img/destination-4.jpg" alt="">
+                                    <div class="destination-overlay p-4">
+                                        <a href="#" class="btn btn-primary text-white rounded-pill border py-2 px-3">20 Photos</a>
+                                        <h4 class="text-white mb-2 mt-3">Los angelas</h4>
+                                        <a href="#" class="btn-hover text-white">View All Place <i class="fa fa-arrow-right ms-2"></i></a>
+                                    </div>
+                                    <div class="search-icon">
+                                        <a href="img/destination-4.jpg" data-lightbox="destination-4"><i class="fa fa-plus-square fa-1x btn btn-light btn-lg-square text-primary"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="destination-img">
+                                    <img class="img-fluid rounded w-100" src="img/destination-5.jpg" alt="">
+                                    <div class="destination-overlay p-4">
+                                        <a href="#" class="btn btn-primary text-white rounded-pill border py-2 px-3">20 Photos</a>
+                                        <h4 class="text-white mb-2 mt-3">Los angelas</h4>
+                                        <a href="#" class="btn-hover text-white">View All Place <i class="fa fa-arrow-right ms-2"></i></a>
+                                    </div>
+                                    <div class="search-icon">
+                                        <a href="img/destination-5.jpg" data-lightbox="destination-5"><i class="fa fa-plus-square fa-1x btn btn-light btn-lg-square text-primary"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="destination-img">
+                                    <img class="img-fluid rounded w-100" src="img/destination-6.jpg" alt="">
+                                    <div class="destination-overlay p-4">
+                                        <a href="#" class="btn btn-primary text-white rounded-pill border py-2 px-3">20 Photos</a>
+                                        <h4 class="text-white mb-2 mt-3">Los angelas</h4>
+                                        <a href="#" class="btn-hover text-white">View All Place <i class="fa fa-arrow-right ms-2"></i></a>
+                                    </div>
+                                    <div class="search-icon">
+                                        <a href="img/destination-6.jpg" data-lightbox="destination-6"><i class="fa fa-plus-square fa-1x btn btn-light btn-lg-square text-primary"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="tab-2" class="tab-pane fade show p-0">
+                        <div class="row g-4">
+                            <div class="col-lg-6">
+                                <div class="destination-img">
+                                    <img class="img-fluid rounded w-100" src="img/destination-5.jpg" alt="">
+                                    <div class="destination-overlay p-4">
+                                        <a href="#" class="btn btn-primary text-white rounded-pill border py-2 px-3">20 Photos</a>
+                                        <h4 class="text-white mb-2 mt-3">San francisco</h4>
+                                        <a href="#" class="btn-hover text-white">View All Place <i class="fa fa-arrow-right ms-2"></i></a>
+                                    </div>
+                                    <div class="search-icon">
+                                        <a href="img/destination-5.jpg" data-lightbox="destination-5"><i class="fa fa-plus-square fa-1x btn btn-light btn-lg-square text-primary"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="destination-img">
+                                    <img class="img-fluid rounded w-100" src="img/destination-6.jpg" alt="">
+                                    <div class="destination-overlay p-4">
+                                        <a href="#" class="btn btn-primary text-white rounded-pill border py-2 px-3">20 Photos</a>
+                                        <h4 class="text-white mb-2 mt-3">San francisco</h4>
+                                        <a href="#" class="btn-hover text-white">View All Place <i class="fa fa-arrow-right ms-2"></i></a>
+                                    </div>
+                                    <div class="search-icon">
+                                        <a href="img/destination-6.jpg" data-lightbox="destination-6"><i class="fa fa-plus-square fa-1x btn btn-light btn-lg-square text-primary"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="tab-3" class="tab-pane fade show p-0">
+                        <div class="row g-4">
+                            <div class="col-lg-6">
+                                <div class="destination-img">
+                                    <img class="img-fluid rounded w-100" src="img/destination-5.jpg" alt="">
+                                    <div class="destination-overlay p-4">
+                                        <a href="#" class="btn btn-primary text-white rounded-pill border py-2 px-3">20 Photos</a>
+                                        <h4 class="text-white mb-2 mt-3">San francisco</h4>
+                                        <a href="#" class="btn-hover text-white">View All Place <i class="fa fa-arrow-right ms-2"></i></a>
+                                    </div>
+                                    <div class="search-icon">
+                                        <a href="img/destination-5.jpg" data-lightbox="destination-5"><i class="fa fa-plus-square fa-1x btn btn-light btn-lg-square text-primary"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="destination-img">
+                                    <img class="img-fluid rounded w-100" src="img/destination-6.jpg" alt="">
+                                    <div class="destination-overlay p-4">
+                                        <a href="#" class="btn btn-primary text-white rounded-pill border py-2 px-3">20 Photos</a>
+                                        <h4 class="text-white mb-2 mt-3">San francisco</h4>
+                                        <a href="#" class="btn-hover text-white">View All Place <i class="fa fa-arrow-right ms-2"></i></a>
+                                    </div>
+                                    <div class="search-icon">
+                                        <a href="img/destination-6.jpg" data-lightbox="destination-6"><i class="fa fa-plus-square fa-1x btn btn-light btn-lg-square text-primary"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="tab-4" class="tab-pane fade show p-0">
+                        <div class="row g-4">
+                            <div class="col-lg-6">
+                                <div class="destination-img">
+                                    <img class="img-fluid rounded w-100" src="img/destination-5.jpg" alt="">
+                                    <div class="destination-overlay p-4">
+                                        <a href="#" class="btn btn-primary text-white rounded-pill border py-2 px-3">20 Photos</a>
+                                        <h4 class="text-white mb-2 mt-3">San francisco</h4>
+                                        <a href="#" class="btn-hover text-white">View All Place <i class="fa fa-arrow-right ms-2"></i></a>
+                                    </div>
+                                    <div class="search-icon">
+                                        <a href="img/destination-5.jpg" data-lightbox="destination-5"><i class="fa fa-plus-square fa-1x btn btn-light btn-lg-square text-primary"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="destination-img">
+                                    <img class="img-fluid rounded w-100" src="img/destination-6.jpg" alt="">
+                                    <div class="destination-overlay p-4">
+                                        <a href="#" class="btn btn-primary text-white rounded-pill border py-2 px-3">20 Photos</a>
+                                        <h4 class="text-white mb-2 mt-3">San francisco</h4>
+                                        <a href="#" class="btn-hover text-white">View All Place <i class="fa fa-arrow-right ms-2"></i></a>
+                                    </div>
+                                    <div class="search-icon">
+                                        <a href="img/destination-6.jpg" data-lightbox="destination-6"><i class="fa fa-plus-square fa-1x btn btn-light btn-lg-square text-primary"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="tab-5" class="tab-pane fade show p-0">
+                        <div class="row g-4">
+                            <div class="col-lg-6">
+                                <div class="destination-img">
+                                    <img class="img-fluid rounded w-100" src="img/destination-5.jpg" alt="">
+                                    <div class="destination-overlay p-4">
+                                        <a href="#" class="btn btn-primary text-white rounded-pill border py-2 px-3">20 Photos</a>
+                                        <h4 class="text-white mb-2 mt-3">San francisco</h4>
+                                        <a href="#" class="btn-hover text-white">View All Place <i class="fa fa-arrow-right ms-2"></i></a>
+                                    </div>
+                                    <div class="search-icon">
+                                        <a href="img/destination-5.jpg" data-lightbox="destination-5"><i class="fa fa-plus-square fa-1x btn btn-light btn-lg-square text-primary"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="destination-img">
+                                    <img class="img-fluid rounded w-100" src="img/destination-6.jpg" alt="">
+                                    <div class="destination-overlay p-4">
+                                        <a href="#" class="btn btn-primary text-white rounded-pill border py-2 px-3">20 Photos</a>
+                                        <h4 class="text-white mb-2 mt-3">San francisco</h4>
+                                        <a href="#" class="btn-hover text-white">View All Place <i class="fa fa-arrow-right ms-2"></i></a>
+                                    </div>
+                                    <div class="search-icon">
+                                        <a href="img/destination-6.jpg" data-lightbox="destination-6"><i class="fa fa-plus-square fa-1x btn btn-light btn-lg-square text-primary"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="tab-6" class="tab-pane fade show p-0">
+                        <div class="row g-4">
+                            <div class="col-lg-6">
+                                <div class="destination-img">
+                                    <img class="img-fluid rounded w-100" src="img/destination-5.jpg" alt="">
+                                    <div class="destination-overlay p-4">
+                                        <a href="#" class="btn btn-primary text-white rounded-pill border py-2 px-3">20 Photos</a>
+                                        <h4 class="text-white mb-2 mt-3">San francisco</h4>
+                                        <a href="#" class="btn-hover text-white">View All Place <i class="fa fa-arrow-right ms-2"></i></a>
+                                    </div>
+                                    <div class="search-icon">
+                                        <a href="img/destination-5.jpg" data-lightbox="destination-5"><i class="fa fa-plus-square fa-1x btn btn-light btn-lg-square text-primary"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="destination-img">
+                                    <img class="img-fluid rounded w-100" src="img/destination-6.jpg" alt="">
+                                    <div class="destination-overlay p-4">
+                                        <a href="#" class="btn btn-primary text-white rounded-pill border py-2 px-3">20 Photos</a>
+                                        <h4 class="text-white mb-2 mt-3">San francisco</h4>
+                                        <a href="#" class="btn-hover text-white">View All Place <i class="fa fa-arrow-right ms-2"></i></a>
+                                    </div>
+                                    <div class="search-icon">
+                                        <a href="img/destination-6.jpg" data-lightbox="destination-6"><i class="fa fa-plus-square fa-1x btn btn-light btn-lg-square text-primary"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Destination End -->
 
-<script {csp-script-nonce}>
-    document.getElementById("menuToggle").addEventListener('click', toggleMenu);
-    function toggleMenu() {
-        var menuItems = document.getElementsByClassName('menu-item');
-        for (var i = 0; i < menuItems.length; i++) {
-            var menuItem = menuItems[i];
-            menuItem.classList.toggle("hidden");
-        }
-    }
-</script>
+    <!-- Explore Tour Start -->
+    <div class="container-fluid ExploreTour py-5">
+        <div class="container py-5">
+            <div class="mx-auto text-center mb-5" style="max-width: 900px;">
+                <h5 class="section-title px-3">Explore Tour</h5>
+                <h1 class="mb-4">The World</h1>
+                <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum tempore nam, architecto doloremque velit explicabo? Voluptate sunt eveniet fuga eligendi! Expedita laudantium fugiat corrupti eum cum repellat a laborum quasi.
+                </p>
+            </div>
+            <div class="tab-class text-center">
+                <ul class="nav nav-pills d-inline-flex justify-content-center mb-5">
+                    <li class="nav-item">
+                        <a class="d-flex mx-3 py-2 border border-primary bg-light rounded-pill active" data-bs-toggle="pill" href="#NationalTab-1">
+                            <span class="text-dark" style="width: 250px;">National Tour Category</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="d-flex py-2 mx-3 border border-primary bg-light rounded-pill" data-bs-toggle="pill" href="#InternationalTab-2">
+                            <span class="text-dark" style="width: 250px;">International tour Category</span>
+                        </a>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <div id="NationalTab-1" class="tab-pane fade show p-0 active">
+                        <div class="row g-4">
+                            <div class="col-md-6 col-lg-4">
+                                <div class="national-item">
+                                    <img src="img/explore-tour-1.jpg" class="img-fluid w-100 rounded" alt="Image">
+                                    <div class="national-content">
+                                        <div class="national-info">
+                                            <h5 class="text-white text-uppercase mb-2">Weekend Tour</h5>
+                                            <a href="#" class="btn-hover text-white">View All Place <i class="fa fa-arrow-right ms-2"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="national-plus-icon">
+                                        <a href="#" class="my-auto"><i class="fas fa-link fa-2x text-white"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <div class="national-item">
+                                    <img src="img/explore-tour-2.jpg" class="img-fluid w-100 rounded" alt="Image">
+                                    <div class="national-content">
+                                        <div class="national-info">
+                                            <h5 class="text-white text-uppercase mb-2">Holiday Tour</h5>
+                                            <a href="#" class="btn-hover text-white">View All Place <i class="fa fa-arrow-right ms-2"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="national-plus-icon">
+                                        <a href="#" class="my-auto"><i class="fas fa-link fa-2x text-white"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <div class="national-item">
+                                    <img src="img/explore-tour-3.jpg" class="img-fluid w-100 rounded" alt="Image">
+                                    <div class="national-content">
+                                        <div class="national-info">
+                                            <h5 class="text-white text-uppercase mb-2">Road Trip</h5>
+                                            <a href="#" class="btn-hover text-white">View All Place <i class="fa fa-arrow-right ms-2"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="tour-offer bg-info">15% Off</div>
+                                    <div class="national-plus-icon">
+                                        <a href="#" class="my-auto"><i class="fas fa-link fa-2x text-white"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <div class="national-item">
+                                    <img src="img/explore-tour-4.jpg" class="img-fluid w-100 rounded" alt="Image">
+                                    <div class="national-content">
+                                        <div class="national-info">
+                                            <h5 class="text-white text-uppercase mb-2">Historical Trip</h5>
+                                            <a href="#" class="btn-hover text-white">View All Place <i class="fa fa-arrow-right ms-2"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="national-plus-icon">
+                                        <a href="#" class="my-auto"><i class="fas fa-link fa-2x text-white"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <div class="national-item">
+                                    <img src="img/explore-tour-5.jpg" class="img-fluid w-100 rounded" alt="Image">
+                                    <div class="national-content">
+                                        <div class="national-info">
+                                            <h5 class="text-white text-uppercase mb-2">Family Tour</h5>
+                                            <a href="#" class="btn-hover text-white">View All Place <i class="fa fa-arrow-right ms-2"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="tour-offer bg-warning">50% Off</div>
+                                    <div class="national-plus-icon">
+                                        <a href="#" class="my-auto"><i class="fas fa-link fa-2x text-white"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <div class="national-item">
+                                    <img src="img/explore-tour-6.jpg" class="img-fluid w-100 rounded" alt="Image">
+                                    <div class="national-content">
+                                        <div class="national-info">
+                                            <h5 class="text-white text-uppercase mb-2">Beach Tour</h5>
+                                            <a href="#" class="btn-hover text-white">View All Place <i class="fa fa-arrow-right ms-2"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="national-plus-icon">
+                                        <a href="#" class="my-auto"><i class="fas fa-link fa-2x text-white"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="InternationalTab-2" class="tab-pane fade show p-0">
+                        <div class="InternationalTour-carousel owl-carousel">
+                            <div class="international-item">
+                                <img src="img/explore-tour-1.jpg" class="img-fluid w-100 rounded" alt="Image">
+                                <div class="international-content">
+                                    <div class="international-info">
+                                        <h5 class="text-white text-uppercase mb-2">Australia</h5>
+                                        <a href="#" class="btn-hover text-white me-4"><i class="fas fa-map-marker-alt me-1"></i> 8 Cities</a>
+                                        <a href="#" class="btn-hover text-white"><i class="fa fa-eye ms-2"></i> <span>143+ Tour Places</span></a>
+                                    </div>
+                                </div>
+                                <div class="tour-offer bg-success">30% Off</div>
+                                <div class="international-plus-icon">
+                                    <a href="#" class="my-auto"><i class="fas fa-link fa-2x text-white"></i></a>
+                                </div>
+                            </div>
+                            <div class="international-item">
+                                <img src="img/explore-tour-2.jpg" class="img-fluid w-100 rounded" alt="Image">
+                                <div class="international-content">
+                                    <div class="international-info">
+                                        <h5 class="text-white text-uppercase mb-2">Germany</h5>
+                                        <a href="#" class="btn-hover text-white me-4"><i class="fas fa-map-marker-alt me-1"></i> 12 Cities</a>
+                                        <a href="#" class="btn-hover text-white"><i class="fa fa-eye ms-2"></i> <span>21+ Tour Places</span></a>
+                                    </div>
+                                </div>
+                                <div class="international-plus-icon">
+                                    <a href="#" class="my-auto"><i class="fas fa-link fa-2x text-white"></i></a>
+                                </div>
+                            </div>
+                            <div class="international-item">
+                                <img src="img/explore-tour-3.jpg" class="img-fluid w-100 rounded" alt="Image">
+                                <div class="international-content">
+                                    <div class="tour-offer bg-warning">45% Off</div>
+                                    <div class="international-info">
+                                        <h5 class="text-white text-uppercase mb-2">Spain</h5>
+                                        <a href="#" class="btn-hover text-white me-4"><i class="fas fa-map-marker-alt me-1"></i> 9 Cities</a>
+                                        <a href="#" class="btn-hover text-white"><i class="fa fa-eye ms-2"></i> <span>133+ Tour Places</span></a>
+                                    </div>
+                                </div>
+                                <div class="international-plus-icon">
+                                    <a href="#" class="my-auto"><i class="fas fa-link fa-2x text-white"></i></a>
+                                </div>
+                            </div>
+                            <div class="international-item">
+                                <img src="img/explore-tour-4.jpg" class="img-fluid w-100 rounded" alt="Image">
+                                <div class="international-content">
+                                    <div class="international-info">
+                                        <h5 class="text-white text-uppercase mb-2">Japan</h5>
+                                        <a href="#" class="btn-hover text-white me-4"><i class="fas fa-map-marker-alt me-1"></i> 8 Cities</a>
+                                        <a href="#" class="btn-hover text-white"><i class="fa fa-eye ms-2"></i> <span>137+ Tour Places</span></a>
+                                    </div>
+                                </div>
+                                <div class="international-plus-icon">
+                                    <a href="#" class="my-auto"><i class="fas fa-link fa-2x text-white"></i></a>
+                                </div>
+                            </div>
+                            <div class="international-item">
+                                <img src="img/explore-tour-5.jpg" class="img-fluid w-100 rounded" alt="Image">
+                                <div class="international-content">
+                                    <div class="tour-offer bg-info">70% Off</div>
+                                    <div class="international-info">
+                                        <h5 class="text-white text-uppercase mb-2">London</h5>
+                                        <a href="#" class="btn-hover text-white me-4"><i class="fas fa-map-marker-alt me-1"></i> 17 Cities</a>
+                                        <a href="#" class="btn-hover text-white"><i class="fa fa-eye ms-2"></i> <span>26+ Tour Places</span></a>
+                                    </div>
+                                </div>
+                                <div class="international-plus-icon">
+                                    <a href="#" class="my-auto"><i class="fas fa-link fa-2x text-white"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Explore Tour Start -->
 
-<!-- -->
+    <!-- Packages Start -->
+    <div class="container-fluid packages py-5">
+        <div class="container py-5">
+            <div class="mx-auto text-center mb-5" style="max-width: 900px;">
+                <h5 class="section-title px-3">Packages</h5>
+                <h1 class="mb-0">Awesome Packages</h1>
+            </div>
+            <div class="packages-carousel owl-carousel">
+                <div class="packages-item">
+                    <div class="packages-img">
+                        <img src="img/packages-4.jpg" class="img-fluid w-100 rounded-top" alt="Image">
+                        <div class="packages-info d-flex border border-start-0 border-end-0 position-absolute" style="width: 100%; bottom: 0; left: 0; z-index: 5;">
+                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-map-marker-alt me-2"></i>Venice - Italy</small>
+                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-calendar-alt me-2"></i>3 days</small>
+                            <small class="flex-fill text-center py-2"><i class="fa fa-user me-2"></i>2 Person</small>
+                        </div>
+                        <div class="packages-price py-2 px-4">$349.00</div>
+                    </div>
+                    <div class="packages-content bg-light">
+                        <div class="p-4 pb-0">
+                            <h5 class="mb-0">Venice - Italy</h5>
+                            <small class="text-uppercase">Hotel Deals</small>
+                            <div class="mb-3">
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                            </div>
+                            <p class="mb-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt nemo quia quae illum aperiam fugiat voluptatem repellat</p>
+                        </div>
+                        <div class="row bg-primary rounded-bottom mx-0">
+                            <div class="col-6 text-start px-0">
+                                <a href="#" class="btn-hover btn text-white py-2 px-4">Read More</a>
+                            </div>
+                            <div class="col-6 text-end px-0">
+                                <a href="#" class="btn-hover btn text-white py-2 px-4">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="packages-item">
+                    <div class="packages-img">
+                        <img src="img/packages-2.jpg" class="img-fluid w-100 rounded-top" alt="Image">
+                        <div class="packages-info d-flex border border-start-0 border-end-0 position-absolute" style="width: 100%; bottom: 0; left: 0; z-index: 5;">
+                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-map-marker-alt me-2"></i>Venice - Italy</small>
+                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-calendar-alt me-2"></i>3 days</small>
+                            <small class="flex-fill text-center py-2"><i class="fa fa-user me-2"></i>2 Person</small>
+                        </div>
+                        <div class="packages-price py-2 px-4">$449.00</div>
+                    </div>
+                    <div class="packages-content bg-light">
+                        <div class="p-4 pb-0">
+                            <h5 class="mb-0">The New California</h5>
+                            <small class="text-uppercase">Hotel Deals</small>
+                            <div class="mb-3">
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                            </div>
+                            <p class="mb-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt nemo quia quae illum aperiam fugiat voluptatem repellat</p>
+                        </div>
+                        <div class="row bg-primary rounded-bottom mx-0">
+                            <div class="col-6 text-start px-0">
+                                <a href="#" class="btn-hover btn text-white py-2 px-4">Read More</a>
+                            </div>
+                            <div class="col-6 text-end px-0">
+                                <a href="#" class="btn-hover btn text-white py-2 px-4">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="packages-item">
+                    <div class="packages-img">
+                        <img src="img/packages-3.jpg" class="img-fluid w-100 rounded-top" alt="Image">
+                        <div class="packages-info d-flex border border-start-0 border-end-0 position-absolute" style="width: 100%; bottom: 0; left: 0; z-index: 5;">
+                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-map-marker-alt me-2"></i>Venice - Italy</small>
+                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-calendar-alt me-2"></i>3 days</small>
+                            <small class="flex-fill text-center py-2"><i class="fa fa-user me-2"></i>2 Person</small>
+                        </div>
+                        <div class="packages-price py-2 px-4">$549.00</div>
+                    </div>
+                    <div class="packages-content bg-light">
+                        <div class="p-4 pb-0">
+                            <h5 class="mb-0">Discover Japan</h5>
+                            <small class="text-uppercase">Hotel Deals</small>
+                            <div class="mb-3">
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                            </div>
+                            <p class="mb-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt nemo quia quae illum aperiam fugiat voluptatem repellat</p>
+                        </div>
+                        <div class="row bg-primary rounded-bottom mx-0">
+                            <div class="col-6 text-start px-0">
+                                <a href="#" class="btn-hover btn text-white py-2 px-4">Read More</a>
+                            </div>
+                            <div class="col-6 text-end px-0">
+                                <a href="#" class="btn-hover btn text-white py-2 px-4">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="packages-item">
+                    <div class="packages-img">
+                        <img src="img/packages-1.jpg" class="img-fluid w-100 rounded-top" alt="Image">
+                        <div class="packages-info d-flex border border-start-0 border-end-0 position-absolute" style="width: 100%; bottom: 0; left: 0; z-index: 5;">
+                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-map-marker-alt me-2"></i>Thayland</small>
+                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-calendar-alt me-2"></i>3 days</small>
+                            <small class="flex-fill text-center py-2"><i class="fa fa-user me-2"></i>2 Person</small>
+                        </div>
+                        <div class="packages-price py-2 px-4">$649.00</div>
+                    </div>
+                    <div class="packages-content bg-light">
+                        <div class="p-4 pb-0">
+                            <h5 class="mb-0">Thayland Trip</h5>
+                            <small class="text-uppercase">Hotel Deals</small>
+                            <div class="mb-3">
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                            </div>
+                            <p class="mb-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt nemo quia quae illum aperiam fugiat voluptatem repellat</p>
+                        </div>
+                        <div class="row bg-primary rounded-bottom mx-0">
+                            <div class="col-6 text-start px-0">
+                                <a href="#" class="btn-hover btn text-white py-2 px-4">Read More</a>
+                            </div>
+                            <div class="col-6 text-end px-0">
+                                <a href="#" class="btn-hover btn text-white py-2 px-4">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Packages End -->
 
+    <!-- Gallery Start -->
+    <div class="container-fluid gallery py-5 my-5">
+        <div class="mx-auto text-center mb-5" style="max-width: 900px;">
+            <h5 class="section-title px-3">Our Gallery</h5>
+            <h1 class="mb-4">Tourism & Traveling Gallery.</h1>
+            <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum tempore nam, architecto doloremque velit explicabo? Voluptate sunt eveniet fuga eligendi! Expedita laudantium fugiat corrupti eum cum repellat a laborum quasi.
+            </p>
+        </div>
+        <div class="tab-class text-center">
+            <ul class="nav nav-pills d-inline-flex justify-content-center mb-5">
+                <li class="nav-item">
+                    <a class="d-flex mx-3 py-2 border border-primary bg-light rounded-pill active" data-bs-toggle="pill" href="#GalleryTab-1">
+                        <span class="text-dark" style="width: 150px;">All</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="d-flex py-2 mx-3 border border-primary bg-light rounded-pill" data-bs-toggle="pill" href="#GalleryTab-2">
+                        <span class="text-dark" style="width: 150px;">World tour</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="d-flex mx-3 py-2 border border-primary bg-light rounded-pill" data-bs-toggle="pill" href="#GalleryTab-3">
+                        <span class="text-dark" style="width: 150px;">Ocean Tour</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="d-flex mx-3 py-2 border border-primary bg-light rounded-pill" data-bs-toggle="pill" href="#GalleryTab-4">
+                        <span class="text-dark" style="width: 150px;">Summer Tour</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="d-flex mx-3 py-2 border border-primary bg-light rounded-pill" data-bs-toggle="pill" href="#GalleryTab-5">
+                        <span class="text-dark" style="width: 150px;">Sport Tour</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div id="GalleryTab-1" class="tab-pane fade show p-0 active">
+                    <div class="row g-2">
+                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-2">
+                            <div class="gallery-item h-100">
+                                <img src="img/gallery-1.jpg" class="img-fluid w-100 h-100 rounded" alt="Image">
+                                <div class="gallery-content">
+                                    <div class="gallery-info">
+                                        <h5 class="text-white text-uppercase mb-2">World Tour</h5>
+                                        <a href="#" class="btn-hover text-white">View All Place <i class="fa fa-arrow-right ms-2"></i></a>
+                                    </div>
+                                </div>
+                                <div class="gallery-plus-icon">
+                                    <a href="img/gallery-1.jpg" data-lightbox="gallery-1" class="my-auto"><i class="fas fa-plus fa-2x text-white"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
+                            <div class="gallery-item h-100">
+                                <img src="img/gallery-2.jpg" class="img-fluid w-100 h-100 rounded" alt="Image">
+                                <div class="gallery-content">
+                                    <div class="gallery-info">
+                                        <h5 class="text-white text-uppercase mb-2">World Tour</h5>
+                                        <a href="#" class="btn-hover text-white">View All Place <i class="fa fa-arrow-right ms-2"></i></a>
+                                    </div>
+                                </div>
+                                <div class="gallery-plus-icon">
+                                    <a href="img/gallery-2.jpg" data-lightbox="gallery-2" class="my-auto"><i class="fas fa-plus fa-2x text-white"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-2">
+                            <div class="gallery-item h-100">
+                                <img src="img/gallery-3.jpg" class="img-fluid w-100 h-100 rounded" alt="Image">
+                                <div class="gallery-content">
+                                    <div class="gallery-info">
+                                        <h5 class="text-white text-uppercase mb-2">World Tour</h5>
+                                        <a href="#" class="btn-hover text-white">View All Place <i class="fa fa-arrow-right ms-2"></i></a>
+                                    </div>
+                                </div>
+                                <div class="gallery-plus-icon">
+                                    <a href="img/gallery-3.jpg" data-lightbox="gallery-3" class="my-auto"><i class="fas fa-plus fa-2x text-white"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
+                            <div class="gallery-item h-100">
+                                <img src="img/gallery-4.jpg" class="img-fluid w-100 h-100 rounded" alt="Image">
+                                <div class="gallery-content">
+                                    <div class="gallery-info">
+                                        <h5 class="text-white text-uppercase mb-2">World Tour</h5>
+                                        <a href="#" class="btn-hover text-white">View All Place <i class="fa fa-arrow-right ms-2"></i></a>
+                                    </div>
+                                </div>
+                                <div class="gallery-plus-icon">
+                                    <a href="img/gallery-4.jpg" data-lightbox="gallery-4" class="my-auto"><i class="fas fa-plus fa-2x text-white"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-2">
+                            <div class="gallery-item h-100">
+                                <img src="img/gallery-5.jpg" class="img-fluid w-100 h-100 rounded" alt="Image">
+                                <div class="gallery-content">
+                                    <div class="gallery-info">
+                                        <h5 class="text-white text-uppercase mb-2">World Tour</h5>
+                                        <a href="#" class="btn-hover text-white">View All Place <i class="fa fa-arrow-right ms-2"></i></a>
+                                    </div>
+                                </div>
+                                <div class="gallery-plus-icon">
+                                    <a href="img/gallery-5.jpg" data-lightbox="gallery-5" class="my-auto"><i class="fas fa-plus fa-2x text-white"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-2">
+                            <div class="gallery-item h-100">
+                                <img src="img/gallery-6.jpg" class="img-fluid w-100 h-100 rounded" alt="Image">
+                                <div class="gallery-content">
+                                    <div class="gallery-info">
+                                        <h5 class="text-white text-uppercase mb-2">World Tour</h5>
+                                        <a href="#" class="btn-hover text-white">View All Place <i class="fa fa-arrow-right ms-2"></i></a>
+                                    </div>
+                                </div>
+                                <div class="gallery-plus-icon">
+                                    <a href="img/gallery-6.jpg" data-lightbox="gallery-6" class="my-auto"><i class="fas fa-plus fa-2x text-white"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-3 col-xl-3">
+                            <div class="gallery-item h-100">
+                                <img src="img/gallery-7.jpg" class="img-fluid w-100 h-100 rounded" alt="Image">
+                                <div class="gallery-content">
+                                    <div class="gallery-info">
+                                        <h5 class="text-white text-uppercase mb-2">World Tour</h5>
+                                        <a href="#" class="btn-hover text-white">View All Place <i class="fa fa-arrow-right ms-2"></i></a>
+                                    </div>
+                                </div>
+                                <div class="gallery-plus-icon">
+                                    <a href="img/gallery-7.jpg" data-lightbox="gallery-7" class="my-auto"><i class="fas fa-plus fa-2x text-white"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-3 col-xl-2">
+                            <div class="gallery-item h-100">
+                                <img src="img/gallery-8.jpg" class="img-fluid w-100 h-100 rounded" alt="Image">
+                                <div class="gallery-content">
+                                    <div class="gallery-info">
+                                        <h5 class="text-white text-uppercase mb-2">World Tour</h5>
+                                        <a href="#" class="btn-hover text-white">View All Place <i class="fa fa-arrow-right ms-2"></i></a>
+                                    </div>
+                                </div>
+                                <div class="gallery-plus-icon">
+                                    <a href="img/gallery-8.jpg" data-lightbox="gallery-8" class="my-auto"><i class="fas fa-plus fa-2x text-white"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-3 col-xl-3">
+                            <div class="gallery-item h-100">
+                                <img src="img/gallery-9.jpg" class="img-fluid w-100 h-100 rounded" alt="Image">
+                                <div class="gallery-content">
+                                    <div class="gallery-info">
+                                        <h5 class="text-white text-uppercase mb-2">World Tour</h5>
+                                        <a href="#" class="btn-hover text-white">View All Place <i class="fa fa-arrow-right ms-2"></i></a>
+                                    </div>
+                                </div>
+                                <div class="gallery-plus-icon">
+                                    <a href="img/gallery-9.jpg" data-lightbox="gallery-9" class="my-auto"><i class="fas fa-plus fa-2x text-white"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-3 col-xl-2">
+                            <div class="gallery-item h-100">
+                                <img src="img/gallery-10.jpg" class="img-fluid w-100 h-100 rounded" alt="Image">
+                                <div class="gallery-content">
+                                    <div class="gallery-info">
+                                        <h5 class="text-white text-uppercase mb-2">World Tour</h5>
+                                        <a href="#" class="btn-hover text-white">View All Place <i class="fa fa-arrow-right ms-2"></i></a>
+                                    </div>
+                                </div>
+                                <div class="gallery-plus-icon">
+                                    <a href="img/gallery-10.jpg" data-lightbox="gallery-10" class="my-auto"><i class="fas fa-plus fa-2x text-white"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="GalleryTab-2" class="tab-pane fade show p-0">
+                    <div class="row g-2">
+                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
+                            <div class="gallery-item h-100">
+                                <img src="img/gallery-2.jpg" class="img-fluid w-100 h-100 rounded" alt="Image">
+                                <div class="gallery-content">
+                                    <div class="gallery-info">
+                                        <h5 class="text-white text-uppercase mb-2">World Tour</h5>
+                                        <a href="#" class="btn-hover text-white">View All Place <i class="fa fa-arrow-right ms-2"></i></a>
+                                    </div>
+                                </div>
+                                <div class="gallery-plus-icon">
+                                    <a href="img/gallery-2.jpg" data-lightbox="gallery-2" class="my-auto"><i class="fas fa-plus fa-2x text-white"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-2">
+                            <div class="gallery-item h-100">
+                                <img src="img/gallery-3.jpg" class="img-fluid w-100 h-100 rounded" alt="Image">
+                                <div class="gallery-content">
+                                    <div class="gallery-info">
+                                        <h5 class="text-white text-uppercase mb-2">World Tour</h5>
+                                        <a href="#" class="btn-hover text-white">View All Place <i class="fa fa-arrow-right ms-2"></i></a>
+                                    </div>
+                                </div>
+                                <div class="gallery-plus-icon">
+                                    <a href="img/gallery-3.jpg" data-lightbox="gallery-3" class="my-auto"><i class="fas fa-plus fa-2x text-white"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="GalleryTab-3" class="tab-pane fade show p-0">
+                    <div class="row g-2">
+                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
+                            <div class="gallery-item h-100">
+                                <img src="img/gallery-2.jpg" class="img-fluid w-100 h-100 rounded" alt="Image">
+                                <div class="gallery-content">
+                                    <div class="gallery-info">
+                                        <h5 class="text-white text-uppercase mb-2">World Tour</h5>
+                                        <a href="#" class="btn-hover text-white">View All Place <i class="fa fa-arrow-right ms-2"></i></a>
+                                    </div>
+                                </div>
+                                <div class="gallery-plus-icon">
+                                    <a href="img/gallery-2.jpg" data-lightbox="gallery-2" class="my-auto"><i class="fas fa-plus fa-2x text-white"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-2">
+                            <div class="gallery-item h-100">
+                                <img src="img/gallery-3.jpg" class="img-fluid w-100 h-100 rounded" alt="Image">
+                                <div class="gallery-content">
+                                    <div class="gallery-info">
+                                        <h5 class="text-white text-uppercase mb-2">World Tour</h5>
+                                        <a href="#" class="btn-hover text-white">View All Place <i class="fa fa-arrow-right ms-2"></i></a>
+                                    </div>
+                                </div>
+                                <div class="gallery-plus-icon">
+                                    <a href="img/gallery-3.jpg" data-lightbox="gallery-3" class="my-auto"><i class="fas fa-plus fa-2x text-white"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="GalleryTab-4" class="tab-pane fade show p-0">
+                    <div class="row g-2">
+                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
+                            <div class="gallery-item h-100">
+                                <img src="img/gallery-2.jpg" class="img-fluid w-100 h-100 rounded" alt="Image">
+                                <div class="gallery-content">
+                                    <div class="gallery-info">
+                                        <h5 class="text-white text-uppercase mb-2">World Tour</h5>
+                                        <a href="#" class="btn-hover text-white">View All Place <i class="fa fa-arrow-right ms-2"></i></a>
+                                    </div>
+                                </div>
+                                <div class="gallery-plus-icon">
+                                    <a href="img/gallery-2.jpg" data-lightbox="gallery-2" class="my-auto"><i class="fas fa-plus fa-2x text-white"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-2">
+                            <div class="gallery-item h-100">
+                                <img src="img/gallery-3.jpg" class="img-fluid w-100 h-100 rounded" alt="Image">
+                                <div class="gallery-content">
+                                    <div class="gallery-info">
+                                        <h5 class="text-white text-uppercase mb-2">World Tour</h5>
+                                        <a href="#" class="btn-hover text-white">View All Place <i class="fa fa-arrow-right ms-2"></i></a>
+                                    </div>
+                                </div>
+                                <div class="gallery-plus-icon">
+                                    <a href="img/gallery-3.jpg" data-lightbox="gallery-3" class="my-auto"><i class="fas fa-plus fa-2x text-white"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="GalleryTab-5" class="tab-pane fade show p-0">
+                    <div class="row g-2">
+                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
+                            <div class="gallery-item h-100">
+                                <img src="img/gallery-2.jpg" class="img-fluid w-100 h-100 rounded" alt="Image">
+                                <div class="gallery-content">
+                                    <div class="gallery-info">
+                                        <h5 class="text-white text-uppercase mb-2">World Tour</h5>
+                                        <a href="#" class="btn-hover text-white">View All Place <i class="fa fa-arrow-right ms-2"></i></a>
+                                    </div>
+                                </div>
+                                <div class="gallery-plus-icon">
+                                    <a href="img/gallery-2.jpg" data-lightbox="gallery-2" class="my-auto"><i class="fas fa-plus fa-2x text-white"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-2">
+                            <div class="gallery-item h-100">
+                                <img src="img/gallery-3.jpg" class="img-fluid w-100 h-100 rounded" alt="Image">
+                                <div class="gallery-content">
+                                    <div class="gallery-info">
+                                        <h5 class="text-white text-uppercase mb-2">World Tour</h5>
+                                        <a href="#" class="btn-hover text-white">View All Place <i class="fa fa-arrow-right ms-2"></i></a>
+                                    </div>
+                                </div>
+                                <div class="gallery-plus-icon">
+                                    <a href="img/gallery-3.jpg" data-lightbox="gallery-3" class="my-auto"><i class="fas fa-plus fa-2x text-white"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Gallery End -->
+
+    <!-- Tour Booking Start -->
+    <div class="container-fluid booking py-5">
+        <div class="container py-5">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-6">
+                    <h5 class="section-booking-title pe-3">Booking</h5>
+                    <h1 class="text-white mb-4">Online Booking</h1>
+                    <p class="text-white mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur maxime ullam esse fuga blanditiis accusantium pariatur quis sapiente, veniam doloribus praesentium? Repudiandae iste voluptatem fugiat doloribus quasi quo iure officia.
+                    </p>
+                    <p class="text-white mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur maxime ullam esse fuga blanditiis accusantium pariatur quis sapiente, veniam doloribus praesentium? Repudiandae iste voluptatem fugiat doloribus quasi quo iure officia.
+                    </p>
+                    <a href="#" class="btn btn-light text-primary rounded-pill py-3 px-5 mt-2">Read More</a>
+                </div>
+                <div class="col-lg-6">
+                    <h1 class="text-white mb-3">Book A Tour Deals</h1>
+                    <p class="text-white mb-4">Get <span class="text-warning">50% Off</span> On Your First Adventure Trip With Travela. Get More Deal Offers Here.</p>
+                    <form>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control bg-white border-0" id="name" placeholder="Your Name">
+                                    <label for="name">Your Name</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="email" class="form-control bg-white border-0" id="email" placeholder="Your Email">
+                                    <label for="email">Your Email</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating date" id="date3" data-target-input="nearest">
+                                    <input type="text" class="form-control bg-white border-0" id="datetime" placeholder="Date & Time" data-target="#date3" data-toggle="datetimepicker" />
+                                    <label for="datetime">Date & Time</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <select class="form-select bg-white border-0" id="select1">
+                                        <option value="1">Destination 1</option>
+                                        <option value="2">Destination 2</option>
+                                        <option value="3">Destination 3</option>
+                                    </select>
+                                    <label for="select1">Destination</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <select class="form-select bg-white border-0" id="SelectPerson">
+                                        <option value="1">Persons 1</option>
+                                        <option value="2">Persons 2</option>
+                                        <option value="3">Persons 3</option>
+                                    </select>
+                                    <label for="SelectPerson">Persons</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <select class="form-select bg-white border-0" id="CategoriesSelect">
+                                        <option value="1">Kids</option>
+                                        <option value="2">1</option>
+                                        <option value="3">2</option>
+                                        <option value="3">3</option>
+                                    </select>
+                                    <label for="CategoriesSelect">Categories</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <textarea class="form-control bg-white border-0" placeholder="Special Request" id="message" style="height: 100px"></textarea>
+                                    <label for="message">Special Request</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <button class="btn btn-primary text-white w-100 py-3" type="submit">Book Now</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Tour Booking End -->
+
+    <!-- Travel Guide Start -->
+    <div class="container-fluid guide py-5">
+        <div class="container py-5">
+            <div class="mx-auto text-center mb-5" style="max-width: 900px;">
+                <h5 class="section-title px-3">Travel Guide</h5>
+                <h1 class="mb-0">Meet Our Guide</h1>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="guide-item">
+                        <div class="guide-img">
+                            <div class="guide-img-efects">
+                                <img src="img/guide-1.jpg" class="img-fluid w-100 rounded-top" alt="Image">
+                            </div>
+                            <div class="guide-icon rounded-pill p-2">
+                                <a class="btn btn-square btn-primary rounded-circle mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-square btn-primary rounded-circle mx-1" href=""><i class="fab fa-twitter"></i></a>
+                                <a class="btn btn-square btn-primary rounded-circle mx-1" href=""><i class="fab fa-instagram"></i></a>
+                                <a class="btn btn-square btn-primary rounded-circle mx-1" href=""><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                        <div class="guide-title text-center rounded-bottom p-4">
+                            <div class="guide-title-inner">
+                                <h4 class="mt-3">Full Name</h4>
+                                <p class="mb-0">Designation</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="guide-item">
+                        <div class="guide-img">
+                            <div class="guide-img-efects">
+                                <img src="img/guide-2.jpg" class="img-fluid w-100 rounded-top" alt="Image">
+                            </div>
+                            <div class="guide-icon rounded-pill p-2">
+                                <a class="btn btn-square btn-primary rounded-circle mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-square btn-primary rounded-circle mx-1" href=""><i class="fab fa-twitter"></i></a>
+                                <a class="btn btn-square btn-primary rounded-circle mx-1" href=""><i class="fab fa-instagram"></i></a>
+                                <a class="btn btn-square btn-primary rounded-circle mx-1" href=""><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                        <div class="guide-title text-center rounded-bottom p-4">
+                            <div class="guide-title-inner">
+                                <h4 class="mt-3">Full Name</h4>
+                                <p class="mb-0">Designation</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="guide-item">
+                        <div class="guide-img">
+                            <div class="guide-img-efects">
+                                <img src="img/guide-3.jpg" class="img-fluid w-100 rounded-top" alt="Image">
+                            </div>
+                            <div class="guide-icon rounded-pill p-2">
+                                <a class="btn btn-square btn-primary rounded-circle mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-square btn-primary rounded-circle mx-1" href=""><i class="fab fa-twitter"></i></a>
+                                <a class="btn btn-square btn-primary rounded-circle mx-1" href=""><i class="fab fa-instagram"></i></a>
+                                <a class="btn btn-square btn-primary rounded-circle mx-1" href=""><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                        <div class="guide-title text-center rounded-bottom p-4">
+                            <div class="guide-title-inner">
+                                <h4 class="mt-3">Full Name</h4>
+                                <p class="mb-0">Designation</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="guide-item">
+                        <div class="guide-img">
+                            <div class="guide-img-efects">
+                                <img src="img/guide-4.jpg" class="img-fluid w-100 rounded-top" alt="Image">
+                            </div>
+                            <div class="guide-icon rounded-pill p-2">
+                                <a class="btn btn-square btn-primary rounded-circle mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-square btn-primary rounded-circle mx-1" href=""><i class="fab fa-twitter"></i></a>
+                                <a class="btn btn-square btn-primary rounded-circle mx-1" href=""><i class="fab fa-instagram"></i></a>
+                                <a class="btn btn-square btn-primary rounded-circle mx-1" href=""><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                        <div class="guide-title text-center rounded-bottom p-4">
+                            <div class="guide-title-inner">
+                                <h4 class="mt-3">Full Name</h4>
+                                <p class="mb-0">Designation</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Travel Guide End -->
+
+    <!-- Blog Start -->
+    <div class="container-fluid blog py-5">
+        <div class="container py-5">
+            <div class="mx-auto text-center mb-5" style="max-width: 900px;">
+                <h5 class="section-title px-3">Our Blog</h5>
+                <h1 class="mb-4">Popular Travel Blogs</h1>
+                <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti deserunt tenetur sapiente atque. Magni non explicabo beatae sit, vel reiciendis consectetur numquam id similique sunt error obcaecati ducimus officia maiores.
+                </p>
+            </div>
+            <div class="row g-4 justify-content-center">
+                <div class="col-lg-4 col-md-6">
+                    <div class="blog-item">
+                        <div class="blog-img">
+                            <div class="blog-img-inner">
+                                <img class="img-fluid w-100 rounded-top" src="img/blog-1.jpg" alt="Image">
+                                <div class="blog-icon">
+                                    <a href="#" class="my-auto"><i class="fas fa-link fa-2x text-white"></i></a>
+                                </div>
+                            </div>
+                            <div class="blog-info d-flex align-items-center border border-start-0 border-end-0">
+                                <small class="flex-fill text-center border-end py-2"><i class="fa fa-calendar-alt text-primary me-2"></i>28 Jan 2050</small>
+                                <a href="#" class="btn-hover flex-fill text-center text-white border-end py-2"><i class="fa fa-thumbs-up text-primary me-2"></i>1.7K</a>
+                                <a href="#" class="btn-hover flex-fill text-center text-white py-2"><i class="fa fa-comments text-primary me-2"></i>1K</a>
+                            </div>
+                        </div>
+                        <div class="blog-content border border-top-0 rounded-bottom p-4">
+                            <p class="mb-3">Posted By: Royal Hamblin </p>
+                            <a href="#" class="h4">Adventures Trip</a>
+                            <p class="my-3">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam eos</p>
+                            <a href="#" class="btn btn-primary rounded-pill py-2 px-4">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="blog-item">
+                        <div class="blog-img">
+                            <div class="blog-img-inner">
+                                <img class="img-fluid w-100 rounded-top" src="img/blog-2.jpg" alt="Image">
+                                <div class="blog-icon">
+                                    <a href="#" class="my-auto"><i class="fas fa-link fa-2x text-white"></i></a>
+                                </div>
+                            </div>
+                            <div class="blog-info d-flex align-items-center border border-start-0 border-end-0">
+                                <small class="flex-fill text-center border-end py-2"><i class="fa fa-calendar-alt text-primary me-2"></i>28 Jan 2050</small>
+                                <a href="#" class="btn-hover flex-fill text-center text-white border-end py-2"><i class="fa fa-thumbs-up text-primary me-2"></i>1.7K</a>
+                                <a href="#" class="btn-hover flex-fill text-center text-white py-2"><i class="fa fa-comments text-primary me-2"></i>1K</a>
+                            </div>
+                        </div>
+                        <div class="blog-content border border-top-0 rounded-bottom p-4">
+                            <p class="mb-3">Posted By: Royal Hamblin </p>
+                            <a href="#" class="h4">Adventures Trip</a>
+                            <p class="my-3">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam eos</p>
+                            <a href="#" class="btn btn-primary rounded-pill py-2 px-4">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="blog-item">
+                        <div class="blog-img">
+                            <div class="blog-img-inner">
+                                <img class="img-fluid w-100 rounded-top" src="img/blog-3.jpg" alt="Image">
+                                <div class="blog-icon">
+                                    <a href="#" class="my-auto"><i class="fas fa-link fa-2x text-white"></i></a>
+                                </div>
+                            </div>
+                            <div class="blog-info d-flex align-items-center border border-start-0 border-end-0">
+                                <small class="flex-fill text-center border-end py-2"><i class="fa fa-calendar-alt text-primary me-2"></i>28 Jan 2050</small>
+                                <a href="#" class="btn-hover flex-fill text-center text-white border-end py-2"><i class="fa fa-thumbs-up text-primary me-2"></i>1.7K</a>
+                                <a href="#" class="btn-hover flex-fill text-center text-white py-2"><i class="fa fa-comments text-primary me-2"></i>1K</a>
+                            </div>
+                        </div>
+                        <div class="blog-content border border-top-0 rounded-bottom p-4">
+                            <p class="mb-3">Posted By: Royal Hamblin </p>
+                            <a href="#" class="h4">Adventures Trip</a>
+                            <p class="my-3">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam eos</p>
+                            <a href="#" class="btn btn-primary rounded-pill py-2 px-4">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Blog End -->
+
+    <!-- Testimonial Start -->
+    <div class="container-fluid testimonial py-5">
+        <div class="container py-5">
+            <div class="mx-auto text-center mb-5" style="max-width: 900px;">
+                <h5 class="section-title px-3">Testimonial</h5>
+                <h1 class="mb-0">Our Clients Say!!!</h1>
+            </div>
+            <div class="testimonial-carousel owl-carousel">
+                <div class="testimonial-item text-center rounded pb-4">
+                    <div class="testimonial-comment bg-light rounded p-4">
+                        <p class="text-center mb-5">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis nostrum cupiditate, eligendi repellendus saepe illum earum architecto dicta quisquam quasi porro officiis. Vero reiciendis,
+                        </p>
+                    </div>
+                    <div class="testimonial-img p-1">
+                        <img src="img/testimonial-1.jpg" class="img-fluid rounded-circle" alt="Image">
+                    </div>
+                    <div style="margin-top: -35px;">
+                        <h5 class="mb-0">John Abraham</h5>
+                        <p class="mb-0">New York, USA</p>
+                        <div class="d-flex justify-content-center">
+                            <i class="fas fa-star text-primary"></i>
+                            <i class="fas fa-star text-primary"></i>
+                            <i class="fas fa-star text-primary"></i>
+                            <i class="fas fa-star text-primary"></i>
+                            <i class="fas fa-star text-primary"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-item text-center rounded pb-4">
+                    <div class="testimonial-comment bg-light rounded p-4">
+                        <p class="text-center mb-5">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis nostrum cupiditate, eligendi repellendus saepe illum earum architecto dicta quisquam quasi porro officiis. Vero reiciendis,
+                        </p>
+                    </div>
+                    <div class="testimonial-img p-1">
+                        <img src="img/testimonial-2.jpg" class="img-fluid rounded-circle" alt="Image">
+                    </div>
+                    <div style="margin-top: -35px;">
+                        <h5 class="mb-0">John Abraham</h5>
+                        <p class="mb-0">New York, USA</p>
+                        <div class="d-flex justify-content-center">
+                            <i class="fas fa-star text-primary"></i>
+                            <i class="fas fa-star text-primary"></i>
+                            <i class="fas fa-star text-primary"></i>
+                            <i class="fas fa-star text-primary"></i>
+                            <i class="fas fa-star text-primary"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-item text-center rounded pb-4">
+                    <div class="testimonial-comment bg-light rounded p-4">
+                        <p class="text-center mb-5">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis nostrum cupiditate, eligendi repellendus saepe illum earum architecto dicta quisquam quasi porro officiis. Vero reiciendis,
+                        </p>
+                    </div>
+                    <div class="testimonial-img p-1">
+                        <img src="img/testimonial-3.jpg" class="img-fluid rounded-circle" alt="Image">
+                    </div>
+                    <div style="margin-top: -35px;">
+                        <h5 class="mb-0">John Abraham</h5>
+                        <p class="mb-0">New York, USA</p>
+                        <div class="d-flex justify-content-center">
+                            <i class="fas fa-star text-primary"></i>
+                            <i class="fas fa-star text-primary"></i>
+                            <i class="fas fa-star text-primary"></i>
+                            <i class="fas fa-star text-primary"></i>
+                            <i class="fas fa-star text-primary"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-item text-center rounded pb-4">
+                    <div class="testimonial-comment bg-light rounded p-4">
+                        <p class="text-center mb-5">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis nostrum cupiditate, eligendi repellendus saepe illum earum architecto dicta quisquam quasi porro officiis. Vero reiciendis,
+                        </p>
+                    </div>
+                    <div class="testimonial-img p-1">
+                        <img src="img/testimonial-4.jpg" class="img-fluid rounded-circle" alt="Image">
+                    </div>
+                    <div style="margin-top: -35px;">
+                        <h5 class="mb-0">John Abraham</h5>
+                        <p class="mb-0">New York, USA</p>
+                        <div class="d-flex justify-content-center">
+                            <i class="fas fa-star text-primary"></i>
+                            <i class="fas fa-star text-primary"></i>
+                            <i class="fas fa-star text-primary"></i>
+                            <i class="fas fa-star text-primary"></i>
+                            <i class="fas fa-star text-primary"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Testimonial End -->
+
+    <!-- Subscribe Start -->
+    <div class="container-fluid subscribe py-5">
+        <div class="container text-center py-5">
+            <div class="mx-auto text-center" style="max-width: 900px;">
+                <h5 class="subscribe-title px-3">Subscribe</h5>
+                <h1 class="text-white mb-4">Our Newsletter</h1>
+                <p class="text-white mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum tempore nam, architecto doloremque velit explicabo? Voluptate sunt eveniet fuga eligendi! Expedita laudantium fugiat corrupti eum cum repellat a laborum quasi.
+                </p>
+                <div class="position-relative mx-auto">
+                    <input class="form-control border-primary rounded-pill w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
+                    <button type="button" class="btn btn-primary rounded-pill position-absolute top-0 end-0 py-2 px-4 mt-2 me-2">Subscribe</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Subscribe End -->
+
+    <!-- Footer Start -->
+    <div class="container-fluid footer py-5">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-md-6 col-lg-6 col-xl-3">
+                    <div class="footer-item d-flex flex-column">
+                        <h4 class="mb-4 text-white">Get In Touch</h4>
+                        <a href=""><i class="fas fa-home me-2"></i> 123 Street, New York, USA</a>
+                        <a href=""><i class="fas fa-envelope me-2"></i> info@example.com</a>
+                        <a href=""><i class="fas fa-phone me-2"></i> +012 345 67890</a>
+                        <a href="" class="mb-3"><i class="fas fa-print me-2"></i> +012 345 67890</a>
+                        <div class="d-flex align-items-center">
+                            <i class="fas fa-share fa-2x text-white me-2"></i>
+                            <a class="btn-square btn btn-primary rounded-circle mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn-square btn btn-primary rounded-circle mx-1" href=""><i class="fab fa-twitter"></i></a>
+                            <a class="btn-square btn btn-primary rounded-circle mx-1" href=""><i class="fab fa-instagram"></i></a>
+                            <a class="btn-square btn btn-primary rounded-circle mx-1" href=""><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-3">
+                    <div class="footer-item d-flex flex-column">
+                        <h4 class="mb-4 text-white">Company</h4>
+                        <a href=""><i class="fas fa-angle-right me-2"></i> About</a>
+                        <a href=""><i class="fas fa-angle-right me-2"></i> Careers</a>
+                        <a href=""><i class="fas fa-angle-right me-2"></i> Blog</a>
+                        <a href=""><i class="fas fa-angle-right me-2"></i> Press</a>
+                        <a href=""><i class="fas fa-angle-right me-2"></i> Gift Cards</a>
+                        <a href=""><i class="fas fa-angle-right me-2"></i> Magazine</a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-3">
+                    <div class="footer-item d-flex flex-column">
+                        <h4 class="mb-4 text-white">Support</h4>
+                        <a href=""><i class="fas fa-angle-right me-2"></i> Contact</a>
+                        <a href=""><i class="fas fa-angle-right me-2"></i> Legal Notice</a>
+                        <a href=""><i class="fas fa-angle-right me-2"></i> Privacy Policy</a>
+                        <a href=""><i class="fas fa-angle-right me-2"></i> Terms and Conditions</a>
+                        <a href=""><i class="fas fa-angle-right me-2"></i> Sitemap</a>
+                        <a href=""><i class="fas fa-angle-right me-2"></i> Cookie policy</a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-3">
+                    <div class="footer-item">
+                        <div class="row gy-3 gx-2 mb-4">
+                            <div class="col-xl-6">
+                                <form>
+                                    <div class="form-floating">
+                                        <select class="form-select bg-dark border" id="select1">
+                                            <option value="1">Arabic</option>
+                                            <option value="2">German</option>
+                                            <option value="3">Greek</option>
+                                            <option value="3">New York</option>
+                                        </select>
+                                        <label for="select1">English</label>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="col-xl-6">
+                                <form>
+                                    <div class="form-floating">
+                                        <select class="form-select bg-dark border" id="select1">
+                                            <option value="1">USD</option>
+                                            <option value="2">EUR</option>
+                                            <option value="3">INR</option>
+                                            <option value="3">GBP</option>
+                                        </select>
+                                        <label for="select1">$</label>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <h4 class="text-white mb-3">Payments</h4>
+                        <div class="footer-bank-card">
+                            <a href="#" class="text-white me-2"><i class="fab fa-cc-amex fa-2x"></i></a>
+                            <a href="#" class="text-white me-2"><i class="fab fa-cc-visa fa-2x"></i></a>
+                            <a href="#" class="text-white me-2"><i class="fas fa-credit-card fa-2x"></i></a>
+                            <a href="#" class="text-white me-2"><i class="fab fa-cc-mastercard fa-2x"></i></a>
+                            <a href="#" class="text-white me-2"><i class="fab fa-cc-paypal fa-2x"></i></a>
+                            <a href="#" class="text-white"><i class="fab fa-cc-discover fa-2x"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+    <!-- Copyright Start -->
+    <div class="container-fluid copyright text-body py-4">
+        <div class="container">
+            <div class="row g-4 align-items-center">
+                <div class="col-md-6 text-center text-md-end mb-md-0">
+                    <i class="fas fa-copyright me-2"></i><a class="text-white" href="#">Your Site Name</a>, All right reserved.
+                </div>
+                <div class="col-md-6 text-center text-md-start">
+                    <!--/*** This template is free as long as you keep the below author’s credit link/attribution link/backlink. ***/-->
+                    <!--/*** If you'd like to use the template without the below author’s credit link/attribution link/backlink, ***/-->
+                    <!--/*** you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". ***/-->
+                    Designed By <a class="text-white" href="https://htmlcodex.com">HTML Codex</a> Distributed By <a href="https://themewagon.com">ThemeWagon</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!-- Copyright End -->
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-primary btn-primary-outline-0 btn-md-square back-to-top"><i class="fa fa-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
 </body>
+
 </html>
