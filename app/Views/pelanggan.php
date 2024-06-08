@@ -29,8 +29,8 @@
               <td>Brandon Jacob</td>
               <td>Designer</td>
               <td>28</td>
-              <td><button type="button" class="btn btn-danger btn-sm">Danger</button>
-              <button type="button" class="btn btn-warning btn-sm">Warning</button>
+              <td><button type="button" class="btn btn-warning btn-sm">Ubah</button>
+              <button type="button" class="btn btn-danger btn-sm">Hapus</button>
             </td>
             </tr>
           </tbody>
