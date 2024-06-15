@@ -15,7 +15,7 @@ class TableJenisLaundry extends Migration
                 'unsigned' => true,
                 'auto_increment' => true,
             ],
-            'nama' => [
+            'nama_jenis' => [
                 'type' => 'VARCHAR',
                 'constraint' => 100,
             ],
@@ -23,6 +23,10 @@ class TableJenisLaundry extends Migration
                 'type' => 'INT',
                 'constraint' => 11,
             ],
+            'satuan' => [
+                'type' => 'VARCHAR',
+                'constraint' => 10,
+            ]
         ]);
 
         $this->forge->addKey('id_jenis_laundry', true);

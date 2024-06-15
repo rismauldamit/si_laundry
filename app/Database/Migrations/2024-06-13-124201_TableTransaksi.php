@@ -20,9 +20,16 @@ class TableTransaksi extends Migration
                 'constraint' => 11,
                 'unsigned' => true,
             ],
+            'id_user' => [
+                'type' => 'INT',
+                'constraint' => 11,
+                'unsigned' => true,
+                'null' => true,
+            ],
             'total_harga' => [
                 'type' => 'INT',
                 'constraint' => 11,
+                'null' => true,
             ],
             'status' => [
                 'type' => 'ENUM',
@@ -41,6 +48,7 @@ class TableTransaksi extends Migration
 
         $this->forge->addKey('id_transaksi', true);
         $this->forge->addForeignKey('id_pelanggan', 'pelanggan', 'id_pelanggan', 'CASCADE', 'CASCADE');
+        $this->forge->addForeignKey('id_user', 'user', 'id_user', 'CASCADE', 'CASCADE');
         $this->forge->createTable('transaksi');
     }
 

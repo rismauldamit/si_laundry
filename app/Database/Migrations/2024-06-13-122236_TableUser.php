@@ -24,8 +24,8 @@ class TableUser extends Migration
                 'constraint' => 255,
             ],
             'role' => [
-                'type' => 'VARCHAR',
-                'constraint' => 30,
+                'type' => 'ENUM',
+                'constraint' => ['admin', 'karyawan'],
             ],
             'created_at' => [
                 'type' => 'DATETIME',

@@ -29,7 +29,7 @@ class TableBarangLaundry extends Migration
                 'type' => 'INT',
                 'constraint' => 11,
             ],
-            'harga' => [
+            'harga_barang' => [
                 'type' => 'INT',
                 'constraint' => 11,
             ],

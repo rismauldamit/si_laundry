@@ -8,31 +8,55 @@
       <div class="card-body">
         <div class="d-flex justify-content-between align-items-center">
           <h5 class="card-title">Tabel Data Transaksi</h5>
-          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <a href="/transaksi/tambah" type="button" class="btn btn-primary">
             + Tambah
-          </button>
+          </a>
         </div>
         <!-- Table with stripped rows -->
-        <table class="table table-striped">
+        <table class="table table-bordered text-center">
           <thead>
             <tr>
               <th scope="col">No</th>
               <th scope="col">Nama</th>
-              <th scope="col">Barang</th>
               <th scope="col">Alamat</th>
+              <th scope="col">Jenis Barang</th>
+              <th scope="col">Jumlah / Harga</th>
+              <th scope="col">Total Harga</th>
               <th scope="col">Aksi</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>firoh</td>
-              <td>Designer</td>
-              <td>28</td>
-              <td><button type="button" class="btn btn-warning btn-sm">Ubah</button>
-              <button type="button" class="btn btn-danger btn-sm">Hapus</button>
-              </td>
-            </tr>
+            <?php foreach ($list_transaksi as $index => $transaksi) : ?>
+              <?php $jumlahBarang = sizeof($transaksi['barang']); ?>
+              <?php foreach ($transaksi['barang'] as $barangIndex => $barang) : ?>
+                <?php if ($barangIndex === 0) : ?>
+                  <tr>
+                    <th scope="row" rowspan="<?= $jumlahBarang; ?>"><?= $index + 1; ?></th>
+                    <td rowspan="<?= $jumlahBarang; ?>"><?= $transaksi['nama']; ?></td>
+                    <td rowspan="<?= $jumlahBarang; ?>"><?= $transaksi['alamat']; ?></td>
+                    <td style="font-size: 12px;"><?= $barang['nama_jenis']; ?></td>
+                    <td style="font-size: 12px;" class="d-flex justify-content-between">
+                      <div><?= $barang['jumlah'] . " " . $barang['satuan']; ?></div>
+                      <div><?= "Rp." . $barang['harga_barang']; ?></div>
+                    </td>
+                    <td rowspan="<?= $jumlahBarang; ?>">Rp. <?= $transaksi['total_harga']; ?></td>
+                    <td rowspan="<?= $jumlahBarang; ?>">
+                      <button type="button" class="btn btn-warning btn-sm">Ubah</button>
+                      <button type="button" class="btn btn-danger btn-sm">Hapus</button>
+                    </td>
+                  </tr>
+                <?php endif ?>
+                <?php if ($barangIndex !== 0) : ?>
+                  <tr>
+                    <td style="font-size: 12px;"><?= $barang['nama_jenis']; ?></td>
+                    <td style="font-size: 12px;" class="d-flex justify-content-between">
+                      <div><?= $barang['jumlah'] . " " . $barang['satuan']; ?></div>
+                      <div><?= "Rp." . $barang['harga_barang']; ?></div>
+                    </td>
+                  </tr>
+                <?php endif ?>
+              <?php endforeach; ?>
+            <?php endforeach; ?>
           </tbody>
         </table>
         <!-- End Table with stripped rows -->
@@ -55,6 +79,16 @@
               <option value="2">Sherly</option>
               <option value="3">Mahya</option>
             </select>
+            <button class="btn btn-primary mt-3 w-100">
+              + Data Barang Laundry
+            </button>
+            <div class="container-form-input">
+              <div>
+                <input type="text" class="form-control mt-3" placeholder="Nama Barang">
+              </div>
+              <input type="text" class="form-control mt-3" placeholder="Nama Barang">
+              <!-- Dinamic Inputs will add Input more when + Data Barang Laundry -->
+            </div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
@@ -63,14 +97,12 @@
         </div>
       </div>
     </div>
-
   </div>
-  <!-- End Table with stripped rows -->
-
-  </div>
-  </div>
-
-  </div>
-
 </main>
+<?= $this->endSection(); ?>
+
+<?= $this->section('script'); ?>
+<script>
+
+</script>
 <?= $this->endSection(); ?>
