@@ -10,7 +10,12 @@ class JenisLaundryController extends BaseController
 {
     public function index()
     {
-        return view('jenis_laundry');
+        $JenisLaundryModel = new JenisLaundryModel();
+        $listJenisLaundry = $JenisLaundryModel->findAll();
+        return view('jenis_laundry',[
+            'listJenisLaundry' => $listJenisLaundry
+        ]);
+
     }
 
     public function tambah()

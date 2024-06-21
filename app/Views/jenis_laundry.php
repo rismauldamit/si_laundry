@@ -19,21 +19,23 @@
             <tr>
               <th scope="col">No</th>
               <th scope="col">Nama</th>
-              <th scope="col">Harga</th>
               <th scope="col">Satuan</th>
+              <th scope="col">Harga</th>
               <th scope="col">Aksi</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>firoh</td>
-              <td>Designer</td>
-              <td>28</td>
-              <td><button type="button" class="btn btn-warning btn-sm">Ubah</button>
-                <button type="button" class="btn btn-danger btn-sm">Hapus</button>
-              </td>
-            </tr>
+            <?php foreach ($listJenisLaundry as $item) : ?>
+              <tr>
+                <th scope="row">1</th>
+                <td><?= $item['nama_jenis']; ?></td>
+                <td><?= $item['satuan']; ?></td>
+                <td><?= $item['harga']; ?></td>
+                <td><button type="button" class="btn btn-warning btn-sm">Ubah</button>
+                  <button type="button" class="btn btn-danger btn-sm">Hapus</button>
+                </td>
+              </tr>
+            <?php endforeach; ?>
           </tbody>
         </table>
         <!-- End Table with stripped rows -->
