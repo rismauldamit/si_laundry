@@ -2,6 +2,7 @@
 
 use CodeIgniter\Router\RouteCollection;
 
+//SHERLY =======================
 /**
  * @var RouteCollection $routes
  */
@@ -9,6 +10,7 @@ $routes->get('/', 'LandingPageController::index');
 $routes->get('/login', 'LoginController::index');
 $routes->get('/dashboard', 'DashboardController::index');
 $routes->get('/user', 'UserController::index');
+$routes->post('/user', 'UserController::tambah');
 
 // MAHYA =======================
 $routes->get('/pelanggan', 'PelangganController::index');

@@ -1,10 +1,13 @@
 <?= $this->extend('layout/karyawan_layout'); ?>
-
 <?= $this->section('content'); ?>
 <main id="main" class="main">
   <div class="pagetitle">
     <h1>Persediaan</h1>
-    <div class="card mt-2">
+    <nav>
+    </nav>
+  </div>
+  <div class="section-body">
+    <div class="card">
       <div class="card-body">
         <div class="d-flex justify-content-between align-items-center">
           <h5 class="card-title">Tabel Data Persediaan</h5>
@@ -28,8 +31,8 @@
               <td>Designer</td>
               <td>28</td>
               <td><button type="button" class="btn btn-warning btn-sm">Ubah</button>
-              <button type="button" class="btn btn-danger btn-sm">Hapus</button>
-            </td>
+                <button type="button" class="btn btn-danger btn-sm">Hapus</button>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -38,12 +41,5 @@
       </div>
     </div>
   </div>
-  <!-- End Table with stripped rows -->
-
-  </div>
-  </div>
-
-  </div>
-
 </main>
 <?= $this->endSection(); ?>
