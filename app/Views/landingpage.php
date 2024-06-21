@@ -122,11 +122,11 @@
                                 <div class="service-content-inner d-flex align-items-center bg-white border border-primary rounded p-4 pe-0">
                                     <div class="service-content text-end">
                                         <h5 class="mb-4">Cuci Lipat/Kering</h5>
-                                        <p class="mb-0">Dolor sit amet consectetur adipisicing elit. Non alias eum, suscipit expedita corrupti officiis debitis possimus nam laudantium beatae quidem dolore consequuntur voluptate rem reiciendis, omnis sequi harum earum.
+                                        <p class="mb-0">Rp. 5000/kg
                                         </p>
                                     </div>
                                     <div class="service-icon p-4">
-                                        <i class="fas fa-tshirt"></i>
+                                        <i class="fas fa-tshirt fa-4x text-primary"></i>
                                     </div>
                                 </div>
                             </div>
@@ -134,7 +134,7 @@
                                 <div class="service-content-inner d-flex align-items-center  bg-white border border-primary rounded p-4 pe-0">
                                     <div class="service-content text-end">
                                         <h5 class="mb-4">Cuci Setrika</h5>
-                                        <p class="mb-0">Dolor sit amet consectetur adipisicing elit. Non alias eum, suscipit expedita corrupti officiis debitis possimus nam laudantium beatae quidem dolore consequuntur voluptate rem reiciendis, omnis sequi harum earum.
+                                        <p class="mb-0">Rp. 8000/kg
                                         </p>
                                     </div>
                                     <div class="service-icon p-4">
@@ -146,7 +146,7 @@
                                 <div class="service-content-inner d-flex align-items-center bg-white border border-primary rounded p-4 pe-0">
                                     <div class="service-content text-end">
                                         <h5 class="mb-4">Setrika</h5>
-                                        <p class="mb-0">Dolor sit amet consectetur adipisicing elit. Non alias eum, suscipit expedita corrupti officiis debitis possimus nam laudantium beatae quidem dolore consequuntur voluptate rem reiciendis, omnis sequi harum earum.
+                                        <p class="mb-0">Rp. 5000/kg
                                         </p>
                                     </div>
                                     <div class="service-icon p-4">
@@ -158,11 +158,11 @@
                                 <div class="service-content-inner d-flex align-items-center bg-white border border-primary rounded p-4 pe-0">
                                     <div class="service-content text-end">
                                         <h5 class="mb-4">Cuci Sepatu</h5>
-                                        <p class="mb-0">Dolor sit amet consectetur adipisicing elit. Non alias eum, suscipit expedita corrupti officiis debitis possimus nam laudantium beatae quidem dolore consequuntur voluptate rem reiciendis, omnis sequi harum earum.
+                                        <p class="mb-0">Rp. 8000/pcs
                                         </p>
                                     </div>
                                     <div class="service-icon p-4">
-                                        <i class="fa fa-cog fa-4x text-primary"></i>
+                                        <i class="fas fa-shoe-prints fa-4x text-primary"></i>
                                     </div>
                                 </div>
                             </div>
@@ -173,11 +173,11 @@
                             <div class="col-12">
                                 <div class="service-content-inner d-flex align-items-center bg-white border border-primary rounded p-4 ps-0">
                                     <div class="service-icon p-4">
-                                        <i class="fa fa-globe fa-4x text-primary"></i>
+                                        <i class="fas fa-shopping-bag fa-4x text-primary"></i>
                                     </div>
                                     <div class="service-content">
                                         <h5 class="mb-4">Cuci Tas</h5>
-                                        <p class="mb-0">Dolor sit amet consectetur adipisicing elit. Non alias eum, suscipit expedita corrupti officiis debitis possimus nam laudantium beatae quidem dolore consequuntur voluptate rem reiciendis, omnis sequi harum earum.
+                                        <p class="mb-0">Rp. 8000/pcs
                                         </p>
                                     </div>
                                 </div>
@@ -185,11 +185,11 @@
                             <div class="col-12">
                                 <div class="service-content-inner d-flex align-items-center bg-white border border-primary rounded p-4 ps-0">
                                     <div class="service-icon p-4">
-                                        <i class="fa fa-hotel fa-4x text-primary"></i>
+                                        <i class="fas fa-baby fa-4x text-primary"></i>
                                     </div>
                                     <div class="service-content">
                                         <h5 class="mb-4">Cuci Boneka</h5>
-                                        <p class="mb-0">Dolor sit amet consectetur adipisicing elit. Non alias eum, suscipit expedita corrupti officiis debitis possimus nam laudantium beatae quidem dolore consequuntur voluptate rem reiciendis, omnis sequi harum earum.
+                                        <p class="mb-0">Rp. 5000 - Rp. 30000
                                         </p>
                                     </div>
                                 </div>
@@ -197,11 +197,11 @@
                             <div class="col-12">
                                 <div class="service-content-inner d-flex align-items-center bg-white border border-primary rounded p-4 ps-0">
                                     <div class="service-icon p-4">
-                                        <i class="fa fa-user fa-4x text-primary"></i>
+                                        <i class="fas fa-tint fa-4x text-primary"></i>
                                     </div>
                                     <div class="service-content">
                                         <h5 class="mb-4">Cuci Selimut/Bedcover</h5>
-                                        <p class="mb-0">Dolor sit amet consectetur adipisicing elit. Non alias eum, suscipit expedita corrupti officiis debitis possimus nam laudantium beatae quidem dolore consequuntur voluptate rem reiciendis, omnis sequi harum earum.
+                                        <p class="mb-0">Rp. 10000 - Rp 30000
                                         </p>
                                     </div>
                                 </div>
@@ -213,7 +213,7 @@
                                     </div>
                                     <div class="service-content">
                                         <h5 class="mb-4">Cuci Sprei</h5>
-                                        <p class="mb-0">Dolor sit amet consectetur adipisicing elit. Non alias eum, suscipit expedita corrupti officiis debitis possimus nam laudantium beatae quidem dolore consequuntur voluptate rem reiciendis, omnis sequi harum earum.
+                                        <p class="mb-0">Rp. 10000 - Rp. 15000
                                         </p>
                                     </div>
                                 </div>
@@ -265,14 +265,14 @@
         <!-- Tentang Kami -->
 
         <!-- Footer Start -->
-        <div class="container-fluid footer py-5">
+        <div id="kontak" class="container-fluid footer py-5">
             <div class="container py-5">
                 <div class="row g-5">
                     <div class="col-12">
                         <div class="footer-item">
                             <div class="text-center d-flex flex-column">
                                 <h4 class="mb-4 text-white">Kontak Kami</h4>
-                                <a href=""><i class="fas fa-home me-2"></i>Jl. Balerejo no.18 Kel. Angsau
+                                <a href=""><i class="fas fa-home me-2"></i>Jl. Balirejo no.18 Kel. Angsau
                                     Kec. Pelaihari Kalimantan Selatan 70814</a>
                                 <a href=""><i class="fas fa-envelope me-2"></i> jasamamalaundry@gmail.com</a>
                                 <a href=""><i class="fas fa-phone me-2"></i> 0857-5021-7327</a>

@@ -1,49 +1,62 @@
 <?= $this->extend('layout/karyawan_layout'); ?>
-
 <?= $this->section('content'); ?>
 <main id="main" class="main">
   <div class="pagetitle">
     <h1>Persediaan</h1>
-    <div class="card mt-2">
+    <nav>
+    </nav>
+  </div>
+  <div class="section-body">
+    <div class="card">
       <div class="card-body">
-        <div class="d-flex justify-content-between align-items-center">
-          <h5 class="card-title">Tabel Data Persediaan</h5>
-          <button type="button" class="btn btn-primary">+ Tambah</button>
-        </div>
-        <!-- Table with stripped rows -->
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th scope="col">No</th>
-              <th scope="col">Nama</th>
-              <th scope="col">Telepon</th>
-              <th scope="col">Alamat</th>
-              <th scope="col">Aksi</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Brandon Jacob</td>
-              <td>Designer</td>
-              <td>28</td>
-              <td><button type="button" class="btn btn-danger btn-sm">Danger</button>
-              <button type="button" class="btn btn-warning btn-sm">Warning</button>
-            </td>
-            </tr>
-          </tbody>
-        </table>
-        <!-- End Table with stripped rows -->
+        <h5 class="card-title">Data Persediaan Barang</h5>
+
+        <!-- Floating Labels Form -->
+        <form class="row g-3">
+          <div class="col-md-6">
+            <div class="form-floating">
+              <input type="text" class="form-control" id="floatingName" placeholder="Your Name">
+              <label for="floatingName">Kode Barang</label>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-floating">
+              <input type="email" class="form-control" id="floatingEmail" placeholder="Your Email">
+              <label for="floatingEmail">Kode Pengguna</label>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-floating">
+              <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+              <label for="floatingPassword">Nama Barang</label>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-floating">
+              <input type="text" class="form-control" id="floatingZip" placeholder="Zip">
+              <label for="floatingCity">Tanggal Barang</label>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-floating">
+              <input type="text" class="form-control" id="floatingZip" placeholder="Zip">
+              <label for="floatingCity">Jumlah Barang</label>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-floating">
+              <input type="text" class="form-control" id="floatingZip" placeholder="Zip">
+              <label for="floatingCity">Harga Barang</label>
+            </div>
+          </div>
+          <div class="text-end">
+            <button type="submit" class="btn btn-info">Simpan</button>
+            <button type="reset" class="btn btn-warning">Kembali</button>
+          </div>
+        </form><!-- End floating Labels Form -->
 
       </div>
     </div>
   </div>
-  <!-- End Table with stripped rows -->
-
-  </div>
-  </div>
-
-  </div>
-
 </main>
 <?= $this->endSection(); ?>
