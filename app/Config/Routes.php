@@ -8,7 +8,12 @@ use CodeIgniter\Router\RouteCollection;
 $routes->get('/', 'LandingPageController::index');
 $routes->get('/login', 'LoginController::index');
 $routes->get('/dashboard', 'DashboardController::index');
+
 $routes->get('/user', 'UserController::index');
+$routes->post('/user', 'UserController::simpan');
+$routes->put('/user', 'UserController::update');
+$routes->delete('/user', 'UserController::hapus');
+
 
 // MAHYA =======================
 // --> Fitur Pelanggan

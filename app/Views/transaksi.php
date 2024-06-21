@@ -4,6 +4,7 @@
 <main id="main" class="main">
   <div class="pagetitle">
     <h1>Transaksi</h1>
+    <?= $this->include('components/_message'); ?>
     <div class="card mt-2">
       <div class="card-body">
         <div class="d-flex justify-content-between align-items-center">
@@ -37,9 +38,9 @@
                     <td style="font-size: 12px;"><?= $barang['nama_jenis']; ?></td>
                     <td style="font-size: 12px;" class="d-flex justify-content-between">
                       <div><?= $barang['jumlah'] . " " . $barang['satuan']; ?></div>
-                      <div><?= "Rp." . $barang['harga_barang']; ?></div>
+                      <div><?= MoneyFormatID($barang['harga_barang']); ?></div>
                     </td>
-                    <td rowspan="<?= $jumlahBarang; ?>">Rp. <?= $transaksi['total_harga']; ?></td>
+                    <td rowspan="<?= $jumlahBarang; ?>"><?= MoneyFormatID($transaksi['total_harga']); ?></td>
                     <td rowspan="<?= $jumlahBarang; ?>">
                       <button type="button" class="btn btn-warning btn-sm">Ubah</button>
                       <button type="button" class="btn btn-danger btn-sm">Hapus</button>
@@ -51,7 +52,7 @@
                     <td style="font-size: 12px;"><?= $barang['nama_jenis']; ?></td>
                     <td style="font-size: 12px;" class="d-flex justify-content-between">
                       <div><?= $barang['jumlah'] . " " . $barang['satuan']; ?></div>
-                      <div><?= "Rp." . $barang['harga_barang']; ?></div>
+                      <div><?= MoneyFormatID($barang['harga_barang']); ?></div>
                     </td>
                   </tr>
                 <?php endif ?>
@@ -60,49 +61,8 @@
           </tbody>
         </table>
         <!-- End Table with stripped rows -->
-
-      </div>
-    </div>
-
-    <!-- Modal Tambah Transaksi -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Tambah Transaksi</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <select class="form-select form-select-sm" aria-label=".form-select-sm example">
-              <option selected>Pelanggan</option>
-              <option value="1">Firoh</option>
-              <option value="2">Sherly</option>
-              <option value="3">Mahya</option>
-            </select>
-            <button class="btn btn-primary mt-3 w-100">
-              + Data Barang Laundry
-            </button>
-            <div class="container-form-input">
-              <div>
-                <input type="text" class="form-control mt-3" placeholder="Nama Barang">
-              </div>
-              <input type="text" class="form-control mt-3" placeholder="Nama Barang">
-              <!-- Dinamic Inputs will add Input more when + Data Barang Laundry -->
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-            <button type="button" class="btn btn-primary">Lanjutkan</button>
-          </div>
-        </div>
       </div>
     </div>
   </div>
 </main>
-<?= $this->endSection(); ?>
-
-<?= $this->section('script'); ?>
-<script>
-
-</script>
 <?= $this->endSection(); ?>

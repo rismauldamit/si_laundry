@@ -98,6 +98,6 @@ class TransaksiController extends BaseController
         }
 
         $db->transComplete();
-        return redirect()->to('/transaksi');
+        return redirect()->to('/transaksi')->with('success', 'Data Transaksi Berhasil Ditambahkan');
     }
 }
