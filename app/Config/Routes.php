@@ -13,11 +13,15 @@ $routes->get('/user', 'UserController::index');
 // MAHYA =======================
 $routes->get('/pelanggan', 'PelangganController::index');
 $routes->get('/pembelian_barang', 'PembelianBarangController::index');
-$routes->get('/jenis_laundry', 'JenisLaundryController::index');
+$routes->get('/transaksi', 'TransaksiController::index');
+$routes->get('/transaksi/tambah', 'TransaksiController::tambah');
 
 
 // FIROH =======================
-$routes->get('/transaksi', 'TransaksiController::index');
-$routes->get('/transaksi/tambah', 'TransaksiController::tambah');
+$routes->get('/jenis_laundry', 'JenisLaundryController::index');
+$routes->post('/jenis_laundry', 'JenisLaundryController::tambah');
+
+
+// comingsoon
 $routes->get('/pelanggan/tambah', 'PelangganController::tambah');
 $routes->get('/laporan', 'LaporanController');
