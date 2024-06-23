@@ -124,7 +124,7 @@
       </li><!-- End F.A.Q Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="/pembelian_barang">
+        <a class="nav-link collapsed" href="/persediaan">
           <i class="bi bi-cart"></i>
           <span>Persediaan</span>
         </a>

@@ -11,7 +11,10 @@ $routes->get('/login', 'LoginController::index');
 $routes->get('/dashboard', 'DashboardController::index');
 $routes->get('/user', 'UserController::index');
 $routes->post('/user', 'UserController::tambah');
-$routes->post('/persediaan', 'PersediaanController::index');
+$routes->delete('/user', 'UserController::hapus');
+$routes->get('/persediaan', 'PersediaanController::index');
+$routes->post('/persediaan', 'PersediaanController::tambah');
+$routes->delete('/persediaan', 'PersediaanController::hapus');
 
 // MAHYA =======================
 $routes->get('/pembelian_barang', 'PembelianBarangController::index');
