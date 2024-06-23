@@ -7,12 +7,12 @@ use CodeIgniter\Model;
 class JenisLaundryModel extends Model
 {
     protected $table            = 'jenis_laundry';
-    protected $primaryKey       = 'id_jenis';
+    protected $primaryKey       = 'id_jenis_laundry';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['nama_jenis','satuan','harga'];
+    protected $allowedFields    = ['nama_jenis', 'satuan', 'harga'];
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;

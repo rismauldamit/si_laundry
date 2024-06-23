@@ -22,8 +22,10 @@ $routes->get('/transaksi/tambah', 'TransaksiController::tambah');
 // FIROH =======================
 $routes->get('/jenis_laundry', 'JenisLaundryController::index');
 $routes->post('/jenis_laundry', 'JenisLaundryController::tambah');
+$routes->delete('/jenis_laundry', 'JenisLaundryController::hapus');
 $routes->get('/pelanggan', 'PelangganController::index');
 $routes->post('/pelanggan', 'PelangganController::tambah');
+$routes->delete('/pelanggan', 'PelangganController::hapus');
 
 
 // comingsoon

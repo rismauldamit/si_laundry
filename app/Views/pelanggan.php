@@ -4,6 +4,7 @@
 <main id="main" class="main">
   <div class="pagetitle">
     <h1>Pelanggan</h1>
+    <?= $this->include('component/message'); ?>
     <div class="card mt-2">
       <div class="card-body">
         <div class="d-flex justify-content-between align-items-center">
@@ -24,14 +25,40 @@
             </tr>
           </thead>
           <tbody>
-          <?php foreach ($listpelanggan as $index => $item) : ?>
+            <?php foreach ($listpelanggan as $index => $item) : ?>
               <tr>
                 <th scope="row"><?= $index + 1; ?></th>
                 <td><?= $item['nama']; ?></td>
                 <td><?= $item['telp']; ?></td>
                 <td><?= $item['alamat']; ?></td>
-                <td><button type="button" class="btn btn-warning btn-sm">Ubah</button>
-                  <button type="button" class="btn btn-danger btn-sm">Hapus</button>
+                <td>
+                  <button type="button" class="btn btn-warning btn-sm">Ubah</button>
+                  <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#hapusmodal">Hapus</button>
+
+                  <!-- Modal Hapus -->
+                  <div class="modal fade" id="hapusmodal" tabindex="-1" aria-labelledby="hapusmodalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <form action="<?= base_url('/pelanggan'); ?>" class="modal-content" method="POST">
+
+                        <!-- Mengubah Menjadi Method Hapus -->
+                        <input type="hidden" name="_method" value="DELETE">
+                        <input type="hidden" name="id_pelanggan" value="<?= $item['id_pelanggan']; ?>">
+
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="hapusmodalLabel">Hapus Data</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          <p>Yakin Hapus Data ?</p>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="submit" class="btn btn-primary">Ya</button>
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                  <!-- Akhir dari Model Hapus -->
                 </td>
               </tr>
             <?php endforeach; ?>
@@ -41,6 +68,7 @@
 
       </div>
     </div>
+    <!-- Awal Model Tambah -->
   </div>
   <!-- End Table with stripped rows -->
 
@@ -75,6 +103,6 @@
       </form>
     </div>
   </div>
-
+  <!-- Akhir Model Tambah -->
 </main>
 <?= $this->endSection(); ?>
