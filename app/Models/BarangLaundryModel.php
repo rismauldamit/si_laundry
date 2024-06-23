@@ -6,13 +6,13 @@ use CodeIgniter\Model;
 
 class BarangLaundryModel extends Model
 {
-    protected $table            = 'baranglaundries';
-    protected $primaryKey       = 'id';
+    protected $table            = 'barang_laundry';
+    protected $primaryKey       = 'id_barang_laundry';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = [];
+    protected $allowedFields    = ['id_jenis_laundry', 'id_transaksi', 'jumlah', 'harga_barang'];
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;

@@ -8,14 +8,13 @@
                 <h5 class="card-title">General Form Elements</h5>
 
                 <!-- General Form Elements -->
-                <form>
+                <form action="/transaksi/tambah_transaksi" method="POST">
                     <div class="mb-3">
                         <label for="inputText" class="col-form-label">Pelanggan</label>
-                        <select class="form-select" aria-label="Default select example">
-                            <option selected>Open this select menu</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
+                        <select name="id_pelanggan" class="form-select" aria-label="Default select example">
+                            <?php foreach ($list_pelanggan as $item) : ?>
+                                <option value="<?= $item["id_pelanggan"]; ?>"><?= $item["nama"]; ?></option>
+                            <?php endforeach; ?>
                         </select>
                     </div>
                     <div id="container-inputs">
@@ -25,13 +24,13 @@
                                 <label for="inputPassword" class="col-form-label">Barang</label>
                                 <select name="barang[0][id_jenis_laundry]" class="form-select" aria-label="Default select example">
                                     <?php foreach ($list_jenis_barang as $item) : ?>
-                                        <option value="<?= $item['id_jenis_laundry']; ?>"><?= $item['nama_jenis']; ?></option>
+                                        <option value="<?= $item['id_jenis_laundry']; ?>"><?= $item['nama_jenis'] . " / " . $item['harga']; ?></option>
                                     <?php endforeach; ?>
                                 </select>
                             </div>
                             <div class=" mb-3 col-6">
                                 <label for="inputNumber" class="col-form-label">Jumlah</label>
-                                <input type="number" class="form-control" name="barang[0][jumlah]">
+                                <input type="number" min="1" value="1" class="form-control" name="barang[0][jumlah]">
                             </div>
                         </div>
                     </div>
@@ -63,18 +62,17 @@
         const div = document.createElement('div');
         div.classList.add('row');
         div.innerHTML = `
-        <div class="mb-3 col-6">
+         <div class="mb-3 col-6">
                                 <label for="inputPassword" class="col-form-label">Barang</label>
-                                <select class="form-select" aria-label="Default select example">
-                                    <option selected>Open this select menu</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
+                                <select name="barang[${length}][id_jenis_laundry]" class="form-select" aria-label="Default select example">
+                                    <?php foreach ($list_jenis_barang as $item) : ?>
+                                        <option value="<?= $item['id_jenis_laundry']; ?>"><?= $item['nama_jenis']; ?></option>
+                                    <?php endforeach; ?>
                                 </select>
                             </div>
                             <div class=" mb-3 col-6">
                                 <label for="inputNumber" class="col-form-label">Jumlah</label>
-                                <input type="number" class="form-control">
+                                <input type="number" value="1" min="1" class="form-control" name="barang[${length}][jumlah]">
                             </div>
         `;
         containerInputs.appendChild(div);

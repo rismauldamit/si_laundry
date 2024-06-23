@@ -17,6 +17,7 @@ $routes->post('/persediaan', 'PersediaanController::index');
 $routes->get('/pembelian_barang', 'PembelianBarangController::index');
 $routes->get('/transaksi', 'TransaksiController::index');
 $routes->get('/transaksi/tambah_transaksi', 'TransaksiController::tambah_transaksi');
+$routes->post('/transaksi/tambah_transaksi', 'TransaksiController::simpan');
 
 
 
