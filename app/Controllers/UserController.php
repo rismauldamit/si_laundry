@@ -38,4 +38,10 @@ class UserController extends BaseController
         $UserModel->insert($data);
         return redirect()->to('/user')->with('success', 'Data User Berhasil Ditambahkan');
     }
+    public function hapus()
+    {
+        $UserModel = new UserModel();
+        $UserModel->delete($this->request->getPost('id_user'));
+        return redirect()->to('/user')->with('success', 'Data User Berhasil Dihapus');
+    }
 }
