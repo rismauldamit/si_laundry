@@ -17,7 +17,8 @@ $routes->post('/persediaan', 'PersediaanController::index');
 $routes->get('/pelanggan', 'PelangganController::index');
 $routes->get('/pembelian_barang', 'PembelianBarangController::index');
 $routes->get('/transaksi', 'TransaksiController::index');
-$routes->get('/transaksi/tambah', 'TransaksiController::tambah');
+$routes->get('/transaksi/tambah_transaksi', 'TransaksiController::tambah_transaksi');
+
 
 
 // FIROH =======================
