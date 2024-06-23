@@ -11,6 +11,7 @@ $routes->get('/login', 'LoginController::index');
 $routes->get('/dashboard', 'DashboardController::index');
 $routes->get('/user', 'UserController::index');
 $routes->post('/user', 'UserController::tambah');
+$routes->post('/persediaan', 'PersediaanController::index');
 
 // MAHYA =======================
 $routes->get('/pembelian_barang', 'PembelianBarangController::index');

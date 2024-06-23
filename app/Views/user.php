@@ -27,9 +27,9 @@
             </tr>
           </thead>
           <tbody>
-            <?php foreach ($listuser as $item) : ?>
+            <?php foreach ($listuser as $index => $item) : ?>
               <tr>
-                <th scope="row">1</th>
+                <th scope="row"><?= $index + 1; ?></th>
                 <td><?= $item['username']; ?></td>
                 <td><i>Password Disembunyikan</i></td>
                 <td><?= $item['role']; ?></td>
