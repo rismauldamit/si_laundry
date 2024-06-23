@@ -23,7 +23,6 @@
               <th scope="col">Barang</th>
               <th scope="col">Jumlah/Harga</th>
               <th scope="col">Total Harga</th>
-              <th scope="col">Aksi</th>
             </tr>
           </thead>
           <tbody>
@@ -50,10 +49,6 @@
                       <div><?= $barang['harga_barang']; ?></div>
                     </td>
                     <td rowspan="<?= $jumlahBarang; ?>"><?= $transaksi['total_harga']; ?></td>
-                    <td rowspan="<?= $jumlahBarang; ?>">
-                      <button type="button" class="btn btn-warning btn-sm">Ubah</button>
-                      <button type="button" class="btn btn-danger btn-sm">Hapus</button>
-                    </td>
                   </tr>
                 <?php endif ?>
 
