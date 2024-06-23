@@ -25,9 +25,9 @@
             </tr>
           </thead>
           <tbody>
-            <?php foreach ($listJenisLaundry as $item) : ?>
+            <?php foreach ($listJenisLaundry as $index => $item) : ?>
               <tr>
-                <th scope="row">1</th>
+                <th scope="row"><?= $index + 1; ?></th>
                 <td><?= $item['nama_jenis']; ?></td>
                 <td><?= $item['satuan']; ?></td>
                 <td><?= $item['harga']; ?></td>
