@@ -4,15 +4,15 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class JenisLaundryModel extends Model
+class PersediaanModel extends Model
 {
-    protected $table            = 'jenis_laundry';
-    protected $primaryKey       = 'id_jenis_laundry';
+    protected $table            = 'persediaan';
+    protected $primaryKey       = 'id_persediaan';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['nama_jenis', 'satuan', 'harga'];
+    protected $allowedFields    = ['tanggal', 'jumlah', 'harga_satuan', 'nama_barang'];
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;

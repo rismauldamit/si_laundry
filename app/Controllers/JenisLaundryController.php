@@ -41,4 +41,10 @@ class JenisLaundryController extends BaseController
 
         $JenisLaundryModel = new JenisLaundryModel();
     }
+    public function hapus()
+    {
+        $JenisLaundryModel = new JenisLaundryModel();
+        $JenisLaundryModel->delete($this->request->getPost('id_jenis_laundry'));
+        return redirect()->to('/jenis_laundry')->with('success','Data Jenis Laundry Berhasil Dihapus');
+    }
 }

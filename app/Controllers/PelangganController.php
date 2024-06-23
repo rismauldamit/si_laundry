@@ -35,11 +35,17 @@ class PelangganController extends BaseController
                 "alamat" => $this->request->getPost('alamat'),
             ];
 
+            // memanggil model PelangganModel
             $PelangganModel = new PelangganModel();
             $PelangganModel->insert($data);
             return redirect()->to('/pelanggan')->with('success', 'Data pelanggan Berhasil Ditambahkan');
 
-            $PelangganModel = new PelangganModel();
         }
+    }
+    public function hapus()
+    {
+        $PelangganModel = new PelangganModel();
+        $PelangganModel->delete($this->request->getPost('id_pelanggan'));
+        return redirect()->to('/pelanggan')->with('success','Data Pelanggan Berhasil Dihapus');
     }
 }

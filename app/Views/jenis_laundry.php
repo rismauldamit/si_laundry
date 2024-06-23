@@ -31,8 +31,33 @@
                 <td><?= $item['nama_jenis']; ?></td>
                 <td><?= $item['satuan']; ?></td>
                 <td><?= $item['harga']; ?></td>
-                <td><button type="button" class="btn btn-warning btn-sm">Ubah</button>
-                  <button type="button" class="btn btn-danger btn-sm">Hapus</button>
+                <td>
+                  <button type="button" class="btn btn-warning btn-sm">Ubah</button>
+                  <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#hapusmodal">Hapus</button>
+
+                  <!-- Modal Hapus -->
+                  <div class="modal fade" id="hapusmodal" tabindex="-1" aria-labelledby="hapusmodalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <form action="<?= base_url('/jenis_laundry'); ?>" class="modal-content" method="POST">
+                        <!-- Mengubah Menjadi Method Hapus -->
+                        <input type="hidden" name="_method" value="DELETE">
+                        <input type="hidden" name="id_jenis_laundry" value="<?= $item['id_jenis_laundry']; ?>">
+
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="hapusmodalLabel">Hapus Data</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          <p>Yakin Hapus Data ?</p>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="submit" class="btn btn-primary">Ya</button>
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                  <!-- Akhir dari Model Hapus -->
                 </td>
               </tr>
             <?php endforeach; ?>
