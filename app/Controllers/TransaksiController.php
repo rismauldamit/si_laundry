@@ -20,8 +20,8 @@ class TransaksiController extends BaseController
 
         foreach ($list_transaksi as $key => $item) {
             $list_transaksi[$key]['barang'] = $BarangLaundyModel->where('id_transaksi', $item['id_transaksi'])
-            ->join('jenis_laundry', 'barang_laundry.id_jenis_laundry = jenis_laundry.id_jenis_laundry')
-            ->findAll();
+                ->join('jenis_laundry', 'barang_laundry.id_jenis_laundry = jenis_laundry.id_jenis_laundry')
+                ->findAll();
         }
 
         return view('transaksi', [
@@ -59,7 +59,8 @@ class TransaksiController extends BaseController
 
         // Insert Data  Transaksi
         $TransaksiModel->insert([
-            'id_pelanggan' => $this->request->getPost('id_pelanggan')
+            'id_pelanggan' => $this->request->getPost('id_pelanggan'),
+            'id_user' => session('id_user'),
         ]);
 
         // Mengambil id Transaksi dari data yang baru diinsert

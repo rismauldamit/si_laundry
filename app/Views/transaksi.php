@@ -9,9 +9,14 @@
       <div class="card-body">
         <div class="d-flex justify-content-between align-items-center">
           <h5 class="card-title">Tabel Data Transaksi</h5>
-          <a href="/transaksi/tambah_transaksi" class="btn btn-primary">
-            + Tambah
-          </a>
+          <div class="d-flex gap-2">
+            <a href="/laporan-print" class="btn btn-success">
+              Print Laporan
+            </a>
+            <a href="/transaksi/tambah_transaksi" class="btn btn-primary">
+              + Tambah
+            </a>
+          </div>
         </div>
         <!-- Table with stripped rows -->
         <table class="table">
@@ -47,9 +52,9 @@
                     <td style="font-size: 12px;"><?= $barang['nama_jenis']; ?></td>
                     <td style="font-size: 12px;" class="d-flex justify-content-between">
                       <div><?= $barang['jumlah'] . " " . $barang['satuan']; ?></div>
-                      <div><?= $barang['harga_barang']; ?></div>
+                      <div><?= IDR($barang['harga_barang']); ?></div>
                     </td>
-                    <td rowspan="<?= $jumlahBarang; ?>"><?= $transaksi['total_harga']; ?></td>
+                    <td rowspan="<?= $jumlahBarang; ?>"><?= IDR($transaksi['total_harga']); ?></td>
                     <td rowspan="<?= $jumlahBarang; ?>">
                       <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#hapusModal<?= $index; ?>">Hapus</button>
 
@@ -83,7 +88,7 @@
                     <td style="font-size: 12px;"><?= $barang['nama_jenis']; ?></td>
                     <td style="font-size: 12px;" class="d-flex justify-content-between">
                       <div><?= $barang['jumlah'] . " " . $barang['satuan']; ?></div>
-                      <div><?= $barang['harga_barang']; ?></div>
+                      <div><?= IDR($barang['harga_barang']); ?></div>
                     </td>
                   </tr>
                 <?php endif; ?>

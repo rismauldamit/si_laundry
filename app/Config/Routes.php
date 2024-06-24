@@ -42,6 +42,6 @@ $routes->group('', ['filter' => 'islogin'], static function ($routes) {
     $routes->delete('/pelanggan', 'PelangganController::hapus');
 
     // comingsoon
-    $routes->get('/pelanggan/tambah', 'PelangganController::tambah');
-    $routes->get('/laporan', 'LaporanController');
+    $routes->get('/laporan', 'LaporanController::index');
+    $routes->get('/laporan-print', 'LaporanController::print');
 });
