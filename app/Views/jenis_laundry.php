@@ -32,11 +32,11 @@
                 <td><?= $item['satuan']; ?></td>
                 <td><?= $item['harga']; ?></td>
                 <td>
-                  <button type="button" class="btn btn-warning btn-sm">Ubah</button>
-                  <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#hapusmodal">Hapus</button>
+                  <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modaledit<?= $index; ?>">Ubah</button>
+                  <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#hapusmodal<?= $index; ?>">Hapus</button>
 
                   <!-- Modal Hapus -->
-                  <div class="modal fade" id="hapusmodal" tabindex="-1" aria-labelledby="hapusmodalLabel" aria-hidden="true">
+                  <div class="modal fade" id="hapusmodal<?= $index; ?>" tabindex="-1" aria-labelledby="hapusmodal<?= $index; ?>Label" aria-hidden="true">
                     <div class="modal-dialog">
                       <form action="<?= base_url('/jenis_laundry'); ?>" class="modal-content" method="POST">
                         <!-- Mengubah Menjadi Method Hapus -->
@@ -44,11 +44,11 @@
                         <input type="hidden" name="id_jenis_laundry" value="<?= $item['id_jenis_laundry']; ?>">
 
                         <div class="modal-header">
-                          <h5 class="modal-title" id="hapusmodalLabel">Hapus Data</h5>
+                          <h5 class="modal-title" id="hapusmodal<?= $index; ?>Label">Hapus Data</h5>
                           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                          <p>Yakin Hapus Data ?</p>
+                          <p>Yakin Hapus Data ? <?= $item['nama_jenis']; ?></p>
                         </div>
                         <div class="modal-footer">
                           <button type="submit" class="btn btn-primary">Ya</button>
@@ -58,6 +58,39 @@
                     </div>
                   </div>
                   <!-- Akhir dari Model Hapus -->
+
+                  <!-- Modal Edit -->
+                  <div class="modal fade" id="modaledit<?= $index; ?>" tabindex="-1" aria-labelledby="modaledit<?= $index; ?>Label" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <form action="<?= base_url('/jenis_laundry'); ?>" class="modal-content" method="POST">
+                        <input type="hidden" name="_method" value="PUT">
+                        <input type="hidden" name="id_jenis_laundry" value="<?= $item['id_jenis_laundry']; ?>">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="modaledit<?= $index; ?>Label">Edit Jenis Laundry</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          <div class="mb-3">
+                            <label for="nama_jenis" class="form-label">Nama</label>
+                            <input type="text" value="<?= $item['nama_jenis']; ?>" name="nama_jenis" class="form-control" id="nama_jenis">
+                          </div>
+                          <div class="mb-3">
+                            <label for="satuan" class="form-label">Satuan</label>
+                            <input type="text" value="<?= $item['satuan']; ?>" name="satuan" class="form-control" id="satuan">
+                          </div>
+                          <div class="mb-3">
+                            <label for="harga" class="form-label">Harga</label>
+                            <input type="text" value="<?= $item['harga']; ?>" name="harga" class="form-control" id="harga">
+                          </div>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                          <button type="submit" class="btn btn-primary">Simpan</button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                  <!-- Akhir Modal Edit -->
                 </td>
               </tr>
             <?php endforeach; ?>
