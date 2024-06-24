@@ -34,9 +34,11 @@ $routes->group('', ['filter' => 'islogin'], static function ($routes) {
     // FIROH =======================
     $routes->get('/jenis_laundry', 'JenisLaundryController::index');
     $routes->post('/jenis_laundry', 'JenisLaundryController::tambah');
+    $routes->put('/jenis_laundry', 'JenisLaundryController::edit');
     $routes->delete('/jenis_laundry', 'JenisLaundryController::hapus');
     $routes->get('/pelanggan', 'PelangganController::index');
     $routes->post('/pelanggan', 'PelangganController::tambah');
+    $routes->put('/pelanggan', 'PelangganController::edit');
     $routes->delete('/pelanggan', 'PelangganController::hapus');
 
     // comingsoon
