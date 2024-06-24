@@ -52,6 +52,29 @@
                     <td rowspan="<?= $jumlahBarang; ?>"><?= $transaksi['total_harga']; ?></td>
                     <td rowspan="<?= $jumlahBarang; ?>">
                       <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#hapusModal<?= $index; ?>">Hapus</button>
+
+                      <div class="modal fade" id="hapusModal<?= $index; ?>" tabindex="-1" aria-labelledby="hapusModalLabel<?= $index; ?>" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <form action="<?= base_url('/transaksi'); ?>" class="modal-content" method="POST">
+                            <!-- Mengubah Jadi Method Delete -->
+                            <input type="hidden" name="_method" value="DELETE">
+                            <input type="hidden" name="id_transaksi" value="<?= $transaksi['id_transaksi']; ?>">
+
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="hapusModalLabel<?= $index; ?>">Hapus Data</h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                              <p>Yakin Hapus Data? <?= $transaksi['nama']; ?></p>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="submit" class="btn btn-primary">Ya</button>
+                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                      <!-- Akhir Modal Hapus -->
                     </td>
                   </tr>
                 <?php else : ?>
@@ -65,6 +88,8 @@
                   </tr>
                 <?php endif; ?>
               <?php endforeach; ?>
+
+
             <?php endforeach; ?>
           </tbody>
         </table>
@@ -72,31 +97,5 @@
       </div>
     </div>
   </div>
-
-  <!-- Modal Hapus -->
-  <?php foreach ($list_transaksi as $index => $transaksi) : ?>
-    <div class="modal fade" id="hapusModal<?= $index; ?>" tabindex="-1" aria-labelledby="hapusModalLabel<?= $index; ?>" aria-hidden="true">
-      <div class="modal-dialog">
-        <form action="<?= base_url('/transaksi'); ?>" class="modal-content" method="POST">
-          <!-- Mengubah Jadi Method Delete -->
-          <input type="hidden" name="_method" value="DELETE">
-          <input type="hidden" name="id_transaksi" value="<?= $transaksi['id_transaksi']; ?>">
-
-          <div class="modal-header">
-            <h5 class="modal-title" id="hapusModalLabel<?= $index; ?>">Hapus Data</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <p>Yakin Hapus Data?</p>
-          </div>
-          <div class="modal-footer">
-            <button type="submit" class="btn btn-primary">Ya</button>
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-          </div>
-        </form>
-      </div>
-    </div>
-  <?php endforeach; ?>
-  <!-- Akhir Modal Hapus -->
 </main>
 <?= $this->endSection(); ?>

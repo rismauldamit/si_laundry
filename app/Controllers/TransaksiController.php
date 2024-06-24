@@ -105,7 +105,7 @@ class TransaksiController extends BaseController
     public function hapus()
     {
         $TransaksiModel = new TransaksiModel();
-        $TransaksiModel->delete_($this->request->getPost('id_transaksi'));
+        $TransaksiModel->delete($this->request->getPost('id_transaksi'));
         return redirect()->to('/transaksi')->with('success', 'Data User Berhasil Dihapus');
     }
 }

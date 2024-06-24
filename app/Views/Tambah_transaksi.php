@@ -5,7 +5,7 @@
 
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title">General Form Elements</h5>
+                <h5 class="card-title">Tambah Data Transaksi</h5>
 
                 <!-- General Form Elements -->
                 <form action="/transaksi/tambah_transaksi" method="POST">
