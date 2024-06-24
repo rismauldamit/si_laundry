@@ -66,21 +66,21 @@
                         <input type="hidden" name="_method" value="PUT">
                         <input type="hidden" name="id_pelanggan" value="<?= $item['id_pelanggan']; ?>">
                         <div class="modal-header">
-                          <h5 class="modal-title" id="modaleditLabel <?= $index; ?>">Tambah Pelanggan</h5>
+                          <h5 class="modal-title" id="modaleditLabel <?= $index; ?>">Edit Pelanggan</h5>
                           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
                           <div class="mb-3">
                             <label for="nama" class="form-label">Nama</label>
-                            <input type="text" name="nama" class="form-control" id="nama">
+                            <input type="text" value="<?= $item['nama']; ?>" name="nama" class="form-control" id="nama">
                           </div>
                           <div class="mb-3">
                             <label for="telp" class="form-label">Telepon</label>
-                            <input type="text" name="telp" class="form-control" id="telp">
+                            <input type="text" value="<?= $item['telp']; ?>" name="telp" class="form-control" id="telp">
                           </div>
                           <div class="mb-3">
                             <label for="alamat" class="form-label">Alamat</label>
-                            <input type="text" name="alamat" class="form-control" id="alamat">
+                            <input type="text" value="<?= $item['alamat']; ?>" name="alamat" class="form-control" id="alamat">
                           </div>
                         </div>
                         <div class="modal-footer">

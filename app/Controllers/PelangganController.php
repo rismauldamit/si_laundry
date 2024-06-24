@@ -68,7 +68,7 @@ class PelangganController extends BaseController
             // memanggil model PelangganModel
             $PelangganModel = new PelangganModel();
             $PelangganModel->update($this->request->getPost('id_pelanggan'),$data);
-            return redirect()->to('/pelanggan')->with('success', 'Data pelanggan Berhasil Ditambahkan');
+            return redirect()->to('/pelanggan')->with('success', 'Data pelanggan Berhasil Diubah');
 
         }
     }
