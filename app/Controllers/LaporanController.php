@@ -45,3 +45,4 @@ class LaporanController extends BaseController
         $dompdf->stream('Laporan-Mama-Laundry.pdf', ['Attachment' => 0]);
     }
 }
+   
