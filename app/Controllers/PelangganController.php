@@ -48,4 +48,29 @@ class PelangganController extends BaseController
         $PelangganModel->delete($this->request->getPost('id_pelanggan'));
         return redirect()->to('/pelanggan')->with('success','Data Pelanggan Berhasil Dihapus');
     }
+    public function edit()
+    { {
+            if (!$this->validate([
+                'nama' => 'required',
+                'telp' => 'required',
+                'alamat' => 'required',
+            ])) {
+                return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
+            }
+
+            //   validasi selesai
+            $data = [
+                "nama" => $this->request->getPost('nama'),
+                "telp" => $this->request->getPost('telp'),
+                "alamat" => $this->request->getPost('alamat'),
+            ];
+
+            // memanggil model PelangganModel
+            $PelangganModel = new PelangganModel();
+            $PelangganModel->update($this->request->getPost('id_pelanggan'),$data);
+            return redirect()->to('/pelanggan')->with('success', 'Data pelanggan Berhasil Diubah');
+
+        }
+    }
+    
 }
