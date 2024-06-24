@@ -104,53 +104,53 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link " href="/dashboard">
+        <a id="navDashboard" class="nav-link" href="/dashboard">
           <i class="bi bi-grid"></i>
           <span>Dashboard</span>
         </a>
       </li><!-- End Dashboard Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="/user">
+        <a id="navUser" class="nav-link " href="/user">
           <i class="bi bi-person"></i>
           <span>User</span>
         </a>
       </li><!-- End Profile Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="/pelanggan">
+        <a id="navPelanggan" class="nav-link " href="/pelanggan">
           <i class='bx bx-group'></i>
           <span>Pelanggan</span>
         </a>
       </li><!-- End F.A.Q Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="/persediaan">
+        <a id="navPersediaan" class="nav-link " href="/persediaan">
           <i class="bi bi-cart"></i>
           <span>Persediaan</span>
         </a>
       </li><!-- End Contact Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="/jenis_laundry">
+        <a id="navJenisLaundry" class="nav-link " href="/jenis_laundry">
           <i class="bi bi-card-list"></i>
           <span>Jenis Laundry</span>
         </a>
       </li><!-- End Register Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="/transaksi">
+        <a id="navTransaksi" class="nav-link " href="/transaksi">
           <i class='bx bxs-t-shirt'></i>
           <span>Transaksi</span>
         </a>
       </li><!-- End Login Page Nav -->
 
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link collapsed" href="/laporan">
           <i class='bx bxs-report'></i>
           <span>Laporan</span>
         </a>
-      </li><!-- End Error 404 Page Nav -->
+      </li>End Error 404 Page Nav -->
 
     </ul>
 
@@ -173,6 +173,46 @@
 
   <!-- Template Main JS File -->
   <script src="<?= base_url(); ?>assets/js/main.js"></script>
+
+  <script>
+    const path = window.location.pathname;
+
+    // Dashboard
+    if (path.startsWith('/dashboard')) {
+      const navDashboard = document.getElementById('navDashboard');
+      navDashboard.classList.add('active');
+    }
+
+    // User
+    if (path.startsWith('/user')) {
+      const navUser = document.getElementById('navUser');
+      navUser.classList.add('active');
+    }
+
+    // Pelanggan
+    if (path.startsWith('/pelanggan')) {
+      const navTransaksi = document.getElementById('navPelanggan');
+      navTransaksi.classList.add('active');
+    }
+
+    // Persediaan
+    if (path.startsWith('/persediaan')) {
+      const navPersediaan = document.getElementById('navPersediaan');
+      navPersediaan.classList.add('active');
+    }
+
+    // Jenis Laundry
+    if (path.startsWith('/jenis_laundry')) {
+      const navJenisLaundry = document.getElementById('navJenisLaundry');
+      navJenisLaundry.classList.add('active');
+    }
+
+    // Transaksi
+    if (path.startsWith('/transaksi')) {
+      const navTransaksi = document.getElementById('navTransaksi');
+      navTransaksi.classList.add('active');
+    }
+  </script>
 
 </body>
 
