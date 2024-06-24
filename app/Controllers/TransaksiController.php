@@ -102,4 +102,10 @@ class TransaksiController extends BaseController
         $db->transRollback();
         return redirect()->to('/transaksi')->with('errors', ['Gagal Menambahkan Data Transaksi']);
     }
+    public function hapus()
+    {
+        $TransaksiModel = new TransaksiModel();
+        $TransaksiModel->delete_($this->request->getPost('id_transaksi'));
+        return redirect()->to('/transaksi')->with('success', 'Data User Berhasil Dihapus');
+    }
 }

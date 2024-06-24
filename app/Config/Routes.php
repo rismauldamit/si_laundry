@@ -7,7 +7,6 @@ use CodeIgniter\Router\RouteCollection;
  * @var RouteCollection $routes
  */
 $routes->get('/', 'LandingPageController::index');
-$routes->get('/login', 'LoginController::index');
 $routes->get('/dashboard', 'DashboardController::index');
 $routes->get('/user', 'UserController::index');
 $routes->post('/user', 'UserController::tambah');
@@ -21,8 +20,8 @@ $routes->get('/pembelian_barang', 'PembelianBarangController::index');
 $routes->get('/transaksi', 'TransaksiController::index');
 $routes->get('/transaksi/tambah_transaksi', 'TransaksiController::tambah_transaksi');
 $routes->post('/transaksi/tambah_transaksi', 'TransaksiController::simpan');
-
-
+$routes->post('/transaksi', 'TransaksiController::hapus');
+$routes->get('/login', 'LoginController::index');
 
 // FIROH =======================
 $routes->get('/jenis_laundry', 'JenisLaundryController::index');
