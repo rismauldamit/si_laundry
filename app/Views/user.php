@@ -33,7 +33,7 @@
                 <td><?= $item['username']; ?></td>
                 <td><i>Password Disembunyikan</i></td>
                 <td><?= $item['role']; ?></td>
-                <td><button type="button" class="btn btn-warning btn-sm">Ubah</button>
+                <td><button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editModal">Ubah</button>
                   <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#hapusModal">Hapus</button>
 
                   <!-- Modal Hapus -->
@@ -59,6 +59,39 @@
                     </div>
                   </div>
                   <!-- Akhir Modal Hapus -->
+
+                  <!-- Awal dari Modal Edit -->
+                  <div class="modal fade" id="modaledit<?= $index; ?>" tabindex="-1" aria-labelledby="modaleditLabel<?= $index; ?>" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <form action="<?= base_url('/user'); ?>" class="modal-content" method="POST">
+                        <input type="hidden" name="_method" value="PUT">
+                        <input type="hidden" name="id_user" value="<?= $item['id_user']; ?>">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="modaleditLabel<?= $index; ?>">Edit User</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          <div class="mb-3">
+                            <label for="username" class="form-label">Username</label>
+                            <input type="text" value="<?= $item['username']; ?>" name="username" class="form-control" id="username">
+                          </div>
+                          <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" value="<?= $item['password']; ?>" name="password" class="form-control" id="password">
+                          </div>
+                          <div class="mb-3">
+                            <label for="role" class="form-label">Role</label>
+                            <input type="text" value="<?= $item['role']; ?>" name="role" class="form-control" id="role">
+                          </div>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                          <button type="submit" class="btn btn-primary">Simpan</button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                  <!-- Akhir dari Modal Edit -->
 
                 </td>
               </tr>
