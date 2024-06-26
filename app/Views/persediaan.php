@@ -36,7 +36,7 @@
                 <td><?= $item['harga_satuan']; ?></td>
                 <td><?= $item['nama_barang']; ?></td>
                 <td>
-                  <button type="button" class="btn btn-warning btn-sm">Ubah</button>
+                  <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modaledit">Ubah</button>
                   <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#hapusModal">Hapus</button>
 
                   <!-- Modal Hapus -->
@@ -62,6 +62,43 @@
                     </div>
                   </div>
                   <!-- Akhir Modal Hapus -->
+
+                  <!-- Awal dari Modal Edit -->
+                  <div class="modal fade" id="modaledit<?= $index; ?>" tabindex="-1" aria-labelledby="modaleditLabel<?= $index; ?>" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <form action="<?= base_url('/persediaan'); ?>" class="modal-content" method="POST">
+                        <input type="hidden" name="_method" value="PUT">
+                        <input type="hidden" name="id_persediaan" value="<?= $item['id_persediaan']; ?>">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="modaleditLabel<?= $index; ?>">Edit Persediaan</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          <div class="mb-3">
+                            <label for="tanggal" class="form-label">Tanggal</label>
+                            <input type="date" value="<?= $item['tanggal']; ?>" name="tanggal" class="form-control" id="tanggal">
+                          </div>
+                          <div class="mb-3">
+                            <label for="jumlah" class="form-label">Jumlah</label>
+                            <input type="number" value="<?= $item['jumlah']; ?>" name="jumlah" class="form-control" id="jumlah">
+                          </div>
+                          <div class="mb-3">
+                            <label for="harga_satuan" class="form-label">Harga Satuan</label>
+                            <input type="number" value="<?= $item['harga_satuan']; ?>" name="harga_satuan" class="form-control" id="harga_satuan">
+                          </div>
+                          <div class="mb-3">
+                            <label for="nama_barang" class="form-label">Nama Barang</label>
+                            <input type="text" value="<?= $item['nama_barang']; ?>" name="nama_barang" class="form-control" id="nama_barang">
+                          </div>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                          <button type="submit" class="btn btn-primary">Simpan</button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                  <!-- Akhir dari Modal Edit -->
 
                 </td>
               </tr>

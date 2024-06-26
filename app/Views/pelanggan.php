@@ -32,7 +32,7 @@
                 <td><?= $item['telp']; ?></td>
                 <td><?= $item['alamat']; ?></td>
                 <td>
-                  <button type="button" class="btn btn-warning btn-sm">Ubah</button>
+                  <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modaledit<?= $index; ?>">Ubah</button>
                   <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#hapusmodal<?= $index; ?>">Hapus</button>
 
                   <!-- Modal Hapus -->
@@ -60,13 +60,13 @@
                   <!-- Akhir dari Model Hapus -->
 
                   <!-- Awal dari Model Edit -->
-                  <div class="modal fade" id="modaledit <?= $index; ?>" tabindex="-1" aria-labelledby="modaleditLabel <?= $index; ?>" aria-hidden="true">
+                  <div class="modal fade" id="modaledit<?= $index; ?>" tabindex="-1" aria-labelledby="modaleditLabel<?= $index; ?>" aria-hidden="true">
                     <div class="modal-dialog">
                       <form action="<?= base_url('/pelanggan'); ?>" class="modal-content" method="POST">
                         <input type="hidden" name="_method" value="PUT">
                         <input type="hidden" name="id_pelanggan" value="<?= $item['id_pelanggan']; ?>">
                         <div class="modal-header">
-                          <h5 class="modal-title" id="modaleditLabel <?= $index; ?>">Edit Pelanggan</h5>
+                          <h5 class="modal-title" id="modaleditLabel<?= $index; ?>">Edit Pelanggan</h5>
                           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
