@@ -3,14 +3,14 @@
 <?= $this->section('content'); ?>
 <main id="main" class="main">
   <div class="pagetitle">
-    <h1>Data Persediaan</h1>
+    <h1>Persediaan</h1>
 
     <?= $this->include('component/message'); ?>
 
     <div class="card mt-2">
       <div class="card-body">
         <div class="d-flex justify-content-between align-items-center">
-          <h5 class="card-title">Persediaan Laundry</h5>
+          <h5 class="card-title">Data Persediaan Laundry</h5>
           <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tambahmodal">
             + Tambah
           </button>
@@ -37,10 +37,10 @@
                 <td><?= $item['nama_barang']; ?></td>
                 <td>
                   <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modaledit">Ubah</button>
-                  <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#hapusModal">Hapus</button>
+                  <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#hapusModal<?= $index; ?>">Hapus</button>
 
                   <!-- Modal Hapus -->
-                  <div class="modal fade" id="hapusModal" tabindex="-1" aria-labelledby="hapusModalLabel" aria-hidden="true">
+                  <div class="modal fade" id="hapusModal<?= $index; ?>" tabindex="-1" aria-labelledby="hapusModalLabel" <?= $index; ?> aria-hidden="true">
                     <div class="modal-dialog">
                       <form action="<?= base_url('/persediaan'); ?>" class="modal-content" method="POST">
                         <!-- Mengubah Jadi Method Delete -->
@@ -48,11 +48,11 @@
                         <input type="hidden" name="id_persediaan" value="<?= $item['id_persediaan']; ?>">
 
                         <div class="modal-header">
-                          <h5 class="modal-title" id="hapusModalLabel">Hapus Data</h5>
+                          <h5 class="modal-title" id="hapusModalLabel<?= $index; ?>">Hapus Data</h5>
                           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                          <p>Yakin Hapus Data ?</p>
+                          <p>Yakin Hapus Data ?<?= $item['nama_barang']; ?></p>
                         </div>
                         <div class="modal-footer">
                           <button type="submit" class="btn btn-primary">Ya</button>

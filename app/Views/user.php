@@ -50,7 +50,7 @@
                           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                          <p>Yakin Hapus Data ?</p>
+                          <p>Yakin Hapus Data ? <?= $item['username']; ?></p>
                         </div>
                         <div class="modal-footer">
                           <button type="submit" class="btn btn-primary">Ya</button>
