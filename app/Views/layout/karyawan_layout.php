@@ -133,7 +133,7 @@
 
       <li class="nav-item">
         <a id="navPersediaan" class="nav-link " href="/barang_persediaan">
-        <i class="bi bi-basket"></i>
+          <i class="bi bi-basket"></i>
           <span>Barang Persediaan</span>
         </a>
       </li><!-- End Contact Page Nav -->
@@ -207,6 +207,12 @@
     if (path.startsWith('/persediaan')) {
       const navPersediaan = document.getElementById('navPersediaan');
       navPersediaan.classList.add('active');
+    }
+
+    // Barang Persediaan
+    if (path.startsWith('/barang_persediaan')) {
+      const navBarangPersediaan = document.getElementById('navBarangPersediaan');
+      navBarangPersediaan.classList.add('active');
     }
 
     // Jenis Laundry
