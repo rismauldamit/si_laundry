@@ -133,7 +133,7 @@
 
       <li class="nav-item">
         <a id="navPersediaan" class="nav-link " href="/barang_persediaan">
-          <i class="bi bi-cart"></i>
+        <i class="bi bi-basket"></i>
           <span>Barang Persediaan</span>
         </a>
       </li><!-- End Contact Page Nav -->
