@@ -132,6 +132,14 @@
       </li><!-- End Contact Page Nav -->
 
       <li class="nav-item">
+        <a id="navPersediaan" class="nav-link " href="/barang_persediaan">
+          <i class="bi bi-cart"></i>
+          <span>Barang Persediaan</span>
+        </a>
+      </li><!-- End Contact Page Nav -->
+
+
+      <li class="nav-item">
         <a id="navJenisLaundry" class="nav-link " href="/jenis_laundry">
           <i class="bi bi-card-list"></i>
           <span>Jenis Laundry</span>

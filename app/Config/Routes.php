@@ -40,6 +40,10 @@ $routes->group('', ['filter' => 'islogin'], static function ($routes) {
     $routes->post('/pelanggan', 'PelangganController::tambah');
     $routes->put('/pelanggan', 'PelangganController::edit');
     $routes->delete('/pelanggan', 'PelangganController::hapus');
+    $routes->get('/barang_persediaan', 'BarangPersediaanController::index');
+    $routes->post('/barang_persediaan', 'BarangPersediaanController::tambah');
+    $routes->put('/barang_persediaan', 'BarangPersediaanController::edit');
+    $routes->delete('/barang_persediaan', 'BarangPersediaanController::hapus');
 
     // comingsoon
     $routes->get('/laporan', 'LaporanController::index');
