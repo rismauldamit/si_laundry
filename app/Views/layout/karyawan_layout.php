@@ -70,21 +70,7 @@
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
-                <i class="bi bi-person"></i>
-                <span>My Profile</span>
-              </a>
-            </li>
-
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="/logout">
+              <a class="dropdown-item d-flex align-items-center" href="<?php echo base_url('/logout'); ?>" onclick="return confirm('Apakah Anda yakin ingin Logout?');" >
                 <i class="bi bi-box-arrow-right"></i>
                 <span>Log Out</span>
               </a>
