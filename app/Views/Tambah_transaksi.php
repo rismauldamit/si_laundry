@@ -17,6 +17,7 @@
                             <?php endforeach; ?>
                         </select>
                     </div>
+                    
                     <div id="container-inputs">
                         <!-- anak 0 -->
                         <div class="row ">
@@ -42,15 +43,11 @@
                             <button type="submit" class="btn btn-primary">Submit Form</button>
                         </div>
                     </div>
-
                 </form><!-- End General Form Elements -->
-
             </div>
         </div>
-
     </div>
 </main>
-
 
 <script>
     const containerInputs = document.querySelector('#container-inputs');

@@ -12,7 +12,7 @@ class PersediaanModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['tanggal', 'jumlah', 'harga_satuan', 'nama_barang'];
+    protected $allowedFields    = ['id_barang_persediaan', 'status', 'jumlah',];
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;
@@ -21,7 +21,7 @@ class PersediaanModel extends Model
     protected array $castHandlers = [];
 
     // Dates
-    protected $useTimestamps = false;
+    protected $useTimestamps = true;
     protected $dateFormat    = 'datetime';
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
@@ -43,4 +43,27 @@ class PersediaanModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    public function getAllData($status = null)
+    {
+        if ($status) {
+            return $this->join("barang_persediaan", "persediaan.id_barang_persediaan=barang_persediaan.id_barang_persediaan")->where('status', 'masuk')->findAll();
+        }
+        return $this->join("barang_persediaan", "persediaan.id_barang_persediaan=barang_persediaan.id_barang_persediaan")->findAll();
+    }
+
+    public function SaveData($data)
+    {
+        return $this->insert($data);
+    }
+
+    public function UpdateData($id, $data)
+    {
+        return $this->update($id, $data);
+    }
+
+    public function DeleteData($id)
+    {
+        return $this->delete($id);
+    }
 }

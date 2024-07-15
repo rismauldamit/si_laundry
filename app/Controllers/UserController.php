@@ -12,7 +12,7 @@ class UserController extends BaseController
     public function index()
     {
         $UserModel = new UserModel();
-        $listuser = $UserModel->findAll();
+        $listuser = $UserModel->getAllData();
         return view('user', [
             'listuser' => $listuser
         ]);
@@ -35,13 +35,13 @@ class UserController extends BaseController
         // memanggil model UserModel
         $UserModel = new UserModel();
         // insert data ke tabel user
-        $UserModel->insert($data);
+        $UserModel->SaveData($data);
         return redirect()->to('/user')->with('success', 'Data User Berhasil Ditambahkan');
     }
     public function hapus()
     {
         $UserModel = new UserModel();
-        $UserModel->delete($this->request->getPost('id_user'));
+        $UserModel->DeleteData($this->request->getPost('id_user'));
         return redirect()->to('/user')->with('success', 'Data User Berhasil Dihapus');
     }
     public function edit()
@@ -63,7 +63,7 @@ class UserController extends BaseController
 
             // memanggil model UserModel
             $UserModel = new UserModel();
-            $UserModel->update($this->request->getPost('id_user'), $data);
+            $UserModel->UpdateData($this->request->getPost('id_user'), $data);
             return redirect()->to('/user')->with('success', 'Data user Berhasil Diubah');
         }
     }

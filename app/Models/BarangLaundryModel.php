@@ -43,4 +43,25 @@ class BarangLaundryModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+
+    public function getAllData()
+    {
+        return $this->findAll();
+    }
+
+    public function SaveData($data)
+    {
+        return $this->insert($data);
+    }
+
+    public function UpdateData($id, $data)
+    {
+        return $this->update($id, $data);
+    }
+
+    public function DeleteData($id)
+    {
+        return $this->delete($id);
+    }
 }

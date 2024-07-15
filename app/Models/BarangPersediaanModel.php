@@ -12,7 +12,7 @@ class BarangPersediaanModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['nama', 'satuan', 'harga'];
+    protected $allowedFields    = ['stok', 'harga_barang', 'nama_barang'];
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;
@@ -43,4 +43,29 @@ class BarangPersediaanModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    public function getAllData()
+    {
+        return $this->findAll();
+    }
+
+    public function getByID($id)
+    {
+        return $this->find($id);
+    }
+
+    public function SaveData($data)
+    {
+        return $this->insert($data);
+    }
+
+    public function UpdateData($id, $data)
+    {
+        return $this->update($id, $data);
+    }
+
+    public function DeleteData($id)
+    {
+        return $this->delete($id);
+    }
 }

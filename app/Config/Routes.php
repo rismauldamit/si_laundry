@@ -47,7 +47,7 @@ $routes->group('', ['filter' => 'islogin'], static function ($routes) {
     $routes->put('/barang_persediaan', 'BarangPersediaanController::edit');
     $routes->delete('/barang_persediaan', 'BarangPersediaanController::hapus');
 
-    // comingsoon
     $routes->get('/laporan', 'LaporanController::index');
     $routes->get('/laporan-print', 'LaporanController::print');
+    $routes->get('/laporan-persedian-print', 'LaporanController::print_persediaan');
 });

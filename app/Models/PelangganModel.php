@@ -12,7 +12,7 @@ class PelangganModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['nama','telp','alamat'];
+    protected $allowedFields    = ['nama', 'telp', 'alamat'];
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;
@@ -43,4 +43,24 @@ class PelangganModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    public function getAllData()
+    {
+        return $this->findAll();
+    }
+
+    public function SaveData($data)
+    {
+        return $this->insert($data);
+    }
+
+    public function UpdateData($id, $data)
+    {
+        return $this->update($id, $data);
+    }
+
+    public function DeleteData($id)
+    {
+        return $this->delete($id);
+    }
 }

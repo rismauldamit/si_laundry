@@ -10,13 +10,21 @@
         <div class="d-flex justify-content-between align-items-center">
           <h5 class="card-title">Tabel Data Transaksi</h5>
           <div class="d-flex gap-2">
-            <a href="/laporan-print" class="btn btn-success">
+            <a href="/laporan-print?tanggal=<?= ($_GET['tanggal']) ? $_GET['tanggal'] : date('Y-m-d'); ?>" class="btn btn-success">
               Print Laporan
             </a>
             <a href="/transaksi/tambah_transaksi" class="btn btn-primary">
               + Tambah
             </a>
           </div>
+        </div>
+
+        <!-- Fitur pencarian berdasarkan bulan -->
+        <div class="pencarian-bulan">
+          <form action="" class="d-flex gap-2 align-items-center">
+            <input type="date" name="tanggal" value="<?= date('Y-m-d'); ?>" class="form-control" style="max-width: 200px;" id="date" placeholder="Pilih Tanggal">
+            <button class="btn btn-primary" type="submit">Cari</button>
+          </form>
         </div>
         <!-- Table with stripped rows -->
         <table class="table">
@@ -70,8 +78,8 @@
                               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                              
-                              <p>Yakin Hapus Data? <?= $transaksi['nama']; ?></p> 
+
+                              <p>Yakin Hapus Data? <?= $transaksi['nama']; ?></p>
                             </div>
                             <div class="modal-footer">
                               <button type="submit" class="btn btn-primary">Ya</button>

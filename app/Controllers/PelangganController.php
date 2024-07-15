@@ -11,7 +11,7 @@ class PelangganController extends BaseController
     public function index()
     {
             $PelangganModel = new PelangganModel();
-            $listpelanggan = $PelangganModel->findAll();
+            $listpelanggan = $PelangganModel->getAllData();
             return view('pelanggan',[
                 'listpelanggan' => $listpelanggan
             ]);
@@ -37,7 +37,7 @@ class PelangganController extends BaseController
 
             // memanggil model PelangganModel
             $PelangganModel = new PelangganModel();
-            $PelangganModel->insert($data);
+            $PelangganModel->SaveData($data);
             return redirect()->to('/pelanggan')->with('success', 'Data pelanggan Berhasil Ditambahkan');
 
         }
@@ -45,7 +45,7 @@ class PelangganController extends BaseController
     public function hapus()
     {
         $PelangganModel = new PelangganModel();
-        $PelangganModel->delete($this->request->getPost('id_pelanggan'));
+        $PelangganModel->DeleteData($this->request->getPost('id_pelanggan'));
         return redirect()->to('/pelanggan')->with('success','Data Pelanggan Berhasil Dihapus');
     }
     public function edit()
@@ -67,7 +67,7 @@ class PelangganController extends BaseController
 
             // memanggil model PelangganModel
             $PelangganModel = new PelangganModel();
-            $PelangganModel->update($this->request->getPost('id_pelanggan'),$data);
+            $PelangganModel->UpdateData($this->request->getPost('id_pelanggan'),$data);
             return redirect()->to('/pelanggan')->with('success', 'Data pelanggan Berhasil Diubah');
 
         }

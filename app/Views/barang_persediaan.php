@@ -18,9 +18,9 @@
                     <thead>
                         <tr>
                             <th scope="col">No</th>
-                            <th scope="col">Nama</th>
-                            <th scope="col">Satuan</th>
-                            <th scope="col">Harga</th>
+                            <th scope="col">Nama Barang</th>
+                            <th scope="col">Stok</th>
+                            <th scope="col">Harga Barang/Satuan</th>
                             <th scope="col">Aksi</th>
                         </tr>
                     </thead>
@@ -28,9 +28,9 @@
                         <?php foreach ($listBarangPersediaan as $index => $item) : ?>
                             <tr>
                                 <th scope="row"><?= $index + 1; ?></th>
-                                <td><?= $item['nama']; ?></td>
-                                <td><?= $item['satuan']; ?></td>
-                                <td><?= $item['harga']; ?></td>
+                                <td><?= $item['nama_barang']; ?></td>
+                                <td><?= $item['stok']; ?></td>
+                                <td><?= $item['harga_barang']; ?></td>
                                 <td>
                                     <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modaledit<?= $index; ?>">Ubah</button>
                                     <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#hapusmodal<?= $index; ?>">Hapus</button>
@@ -48,7 +48,7 @@
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <p>Yakin Hapus Data ? <?= $item['nama']; ?></p>
+                                                    <p>Yakin Hapus Data ? <?= $item['nama_barang']; ?></p>
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="submit" class="btn btn-primary">Ya</button>
@@ -71,16 +71,17 @@
                                                 </div>
                                                 <div class="modal-body">
                                                     <div class="mb-3">
-                                                        <label for="nama" class="form-label">Nama</label>
-                                                        <input type="text" value="<?= $item['nama']; ?>" name="nama" class="form-control" id="nama">
+                                                        <label for="nama_barang" class="form-label">Nama Barang</label>
+                                                        <input type="text" value="<?= $item['nama_barang']; ?>" name="nama_barang" class="form-control" id="nama_barang">
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label for="satuan" class="form-label">Satuan</label>
-                                                        <input type="text" value="<?= $item['satuan']; ?>" name="satuan" class="form-control" id="satuan">
+
+                                                        <input type="hidden" value="<?= $item['stok']; ?>" name="stok" class="form-control" id="satuan">
+                                                        <input disabled type="text" value="<?= $item['stok']; ?>" name="stok" class="form-control" id="satuan">
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label for="harga" class="form-label">Harga</label>
-                                                        <input type="text" value="<?= $item['harga']; ?>" name="harga" class="form-control" id="harga">
+                                                        <label for="harga_barang" class="form-label">harga barang</label>
+                                                        <input type="text" value="<?= $item['harga_barang']; ?>" name="harga_barang" class="form-control" id="harga">
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer">
@@ -109,16 +110,15 @@
                             </div>
                             <div class="modal-body">
                                 <div class="mb-3">
-                                    <label for="nama" class="form-label">Nama</label>
-                                    <input type="text" name="nama" class="form-control" id="nama">
+                                    <input type="hidden" name="stok" value="0" class="form-control" id="stok">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="satuan" class="form-label">Satuan</label>
-                                    <input type="text" name="satuan" class="form-control" id="satuan">
+                                    <label for="nama_barang" class="form-label">nama barang</label>
+                                    <input type="text" name="nama_barang" class="form-control" id="nama_barang">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="harga" class="form-label">Harga</label>
-                                    <input type="text" name="harga" class="form-control" id="harga">
+                                    <label for="harga_barang" class="form-label">harga barang</label>
+                                    <input type="number" name="harga_barang" class="form-control" id="harga_barang">
                                 </div>
                             </div>
                             <div class="modal-footer">

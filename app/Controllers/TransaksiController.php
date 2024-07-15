@@ -13,17 +13,15 @@ class TransaksiController extends BaseController
 {
     public function index()
     {
-        $TransaksiModel = new TransaksiModel();
-        $BarangLaundyModel = new BarangLaundryModel();
-
-        $list_transaksi = $TransaksiModel->join('pelanggan', 'transaksi.id_pelanggan = pelanggan.id_pelanggan')->findAll();
-
-        foreach ($list_transaksi as $key => $item) {
-            $list_transaksi[$key]['barang'] = $BarangLaundyModel->where('id_transaksi', $item['id_transaksi'])
-                ->join('jenis_laundry', 'barang_laundry.id_jenis_laundry = jenis_laundry.id_jenis_laundry')
-                ->findAll();
+        // Pengecekan apakah param url ada tanggal
+        if (!$this->request->getGet('tanggal')) {
+            return redirect()->to(current_url() . '?tanggal=' . date('Y-m-d'));
+        } else {
+            $date = ($this->request->getGet('tanggal')) ? $this->request->getget('tanggal') : date('Y-m-d');
         }
 
+        $TransaksiModel = new TransaksiModel();
+        $list_transaksi = $TransaksiModel->getAllData($date);
         return view('transaksi', [
             'list_transaksi' => $list_transaksi
         ]);
@@ -35,8 +33,8 @@ class TransaksiController extends BaseController
         $PelangganModel = new PelangganModel();
 
 
-        $list_jenis_barang = $JensiModel->findAll();
-        $list_pelanggan = $PelangganModel->findAll();
+        $list_jenis_barang = $JensiModel->getAllData();
+        $list_pelanggan = $PelangganModel->getAllData();
 
         return view('tambah_transaksi', [
             "list_jenis_barang" => $list_jenis_barang,
@@ -58,7 +56,7 @@ class TransaksiController extends BaseController
         $db->transStart();
 
         // Insert Data  Transaksi
-        $TransaksiModel->insert([
+        $TransaksiModel->SaveData([
             'id_pelanggan' => $this->request->getPost('id_pelanggan'),
             'id_user' => session('id_user'),
         ]);
@@ -77,7 +75,7 @@ class TransaksiController extends BaseController
             $harga_barang = $item['jumlah'] * $dataJenis['harga'];
 
             // Insert Barang
-            $BarangLaundyModel->insert([
+            $BarangLaundyModel->SaveData([
                 'id_jenis_laundry' => $item['id_jenis_laundry'],
                 'id_transaksi' => $id_transaksi,
                 'harga_barang' => $harga_barang,
@@ -89,7 +87,7 @@ class TransaksiController extends BaseController
         }
 
         // Memperbarui total harga
-        $TransaksiModel->update($id_transaksi, [
+        $TransaksiModel->UpdateData($id_transaksi, [
             'total_harga' => $total_harga,
         ]);
 
@@ -106,7 +104,7 @@ class TransaksiController extends BaseController
     public function hapus()
     {
         $TransaksiModel = new TransaksiModel();
-        $TransaksiModel->delete($this->request->getPost('id_transaksi'));
+        $TransaksiModel->DeleteData($this->request->getPost('id_transaksi'));
         return redirect()->to('/transaksi')->with('success', 'Data User Berhasil Dihapus');
     }
 }

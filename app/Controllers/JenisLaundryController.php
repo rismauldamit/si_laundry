@@ -11,7 +11,7 @@ class JenisLaundryController extends BaseController
     public function index()
     {
         $JenisLaundryModel = new JenisLaundryModel();
-        $listJenisLaundry = $JenisLaundryModel->findAll();
+        $listJenisLaundry = $JenisLaundryModel->getAllData();
         return view('jenis_laundry', [
             'listJenisLaundry' => $listJenisLaundry
         ]);
@@ -35,16 +35,15 @@ class JenisLaundryController extends BaseController
         ];
 
         $JenisLaundryModel = new JenisLaundryModel();
-        $JenisLaundryModel->insert($data);
+        $JenisLaundryModel->SaveData($data);
         return redirect()->to('/jenis_laundry')->with('success', 'Data jenis_laundry Berhasil Ditambahkan');
 
         $JenisLaundryModel = new JenisLaundryModel();
     }
     public function hapus()
     {
-        dd($this->request->getPost());
         $JenisLaundryModel = new JenisLaundryModel();
-        $JenisLaundryModel->delete($this->request->getPost('id_jenis_laundry'));
+        $JenisLaundryModel->DeleteData($this->request->getPost('id_jenis_laundry'));
         return redirect()->to('/jenis_laundry')->with('success', 'Data Jenis Laundry Berhasil Dihapus');
     }
     public function edit()
@@ -65,7 +64,7 @@ class JenisLaundryController extends BaseController
         ];
 
         $JenisLaundryModel = new JenisLaundryModel();
-        $JenisLaundryModel->update($this->request->getPost('id_jenis_laundry'),$data);
+        $JenisLaundryModel->UpdateData($this->request->getPost('id_jenis_laundry'), $data);
         return redirect()->to('/jenis_laundry')->with('success', 'Data jenis_laundry Berhasil Diubah');
 
         $JenisLaundryModel = new JenisLaundryModel();
