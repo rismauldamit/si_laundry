@@ -36,6 +36,7 @@ class AuthController extends BaseController
 
         if (password_verify($password, $DataUser['password'])) {
             session()->set('username', $DataUser['username']);
+            session()->set('role', $DataUser['role']);
             session()->set('id_user', $DataUser['id_user']);
 
             return redirect()->to('/dashboard');
@@ -47,6 +48,6 @@ class AuthController extends BaseController
     public function logout()
     {
         $UserModel = new UserModel();
-        return redirect()->to('/login')->with('success','berhasil Logout');
+        return redirect()->to('/login')->with('success', 'berhasil Logout');
     }
 }

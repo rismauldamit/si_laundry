@@ -42,7 +42,6 @@
 
   <!-- ======= Header ======= -->
   <header id="header" class="header fixed-top d-flex align-items-center">
-
     <div class="d-flex align-items-center justify-content-between">
       <a href="index.html" class="logo d-flex align-items-center">
         <img src="<?= base_url(); ?>assets/img/laundry.png" alt="" style="width: 32px; height: auto;">
@@ -70,7 +69,7 @@
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="<?php echo base_url('/logout'); ?>" onclick="return confirm('Apakah Anda yakin ingin Logout?');" >
+              <a class="dropdown-item d-flex align-items-center" href="<?php echo base_url('/logout'); ?>" onclick="return confirm('Apakah Anda yakin ingin Logout?');">
                 <i class="bi bi-box-arrow-right"></i>
                 <span>Log Out</span>
               </a>
@@ -96,12 +95,14 @@
         </a>
       </li><!-- End Dashboard Nav -->
 
-      <li class="nav-item">
-        <a id="navUser" class="nav-link " href="/user">
-          <i class="bi bi-person"></i>
-          <span>User</span>
-        </a>
-      </li><!-- End Profile Page Nav -->
+      <?php if (session('role') == 'admin') : ?>
+        <li class="nav-item">
+          <a id="navUser" class="nav-link " href="/user">
+            <i class="bi bi-person"></i>
+            <span>User</span>
+          </a>
+        </li><!-- End Profile Page Nav -->
+      <?php endif ?>
 
       <li class="nav-item">
         <a id="navPelanggan" class="nav-link " href="/pelanggan">
@@ -117,20 +118,23 @@
         </a>
       </li><!-- End Contact Page Nav -->
 
-      <li class="nav-item">
-        <a id="navPersediaan" class="nav-link " href="/barang_persediaan">
-          <i class="bi bi-basket"></i>
-          <span>Barang Persediaan</span>
-        </a>
-      </li><!-- End Contact Page Nav -->
+      <?php if (session('role') == 'admin') : ?>
+        <li class="nav-item">
+          <a id="navPersediaan" class="nav-link " href="/barang_persediaan">
+            <i class="bi bi-basket"></i>
+            <span>Barang Persediaan</span>
+          </a>
+        </li><!-- End Contact Page Nav -->
+      <?php endif ?>
 
-
-      <li class="nav-item">
-        <a id="navJenisLaundry" class="nav-link " href="/jenis_laundry">
-          <i class="bi bi-card-list"></i>
-          <span>Jenis Laundry</span>
-        </a>
-      </li><!-- End Register Page Nav -->
+      <?php if (session('role') == 'admin') : ?>
+        <li class="nav-item">
+          <a id="navJenisLaundry" class="nav-link " href="/jenis_laundry">
+            <i class="bi bi-card-list"></i>
+            <span>Jenis Laundry</span>
+          </a>
+        </li><!-- End Register Page Nav -->
+      <?php endif ?>
 
       <li class="nav-item">
         <a id="navTransaksi" class="nav-link " href="/transaksi">

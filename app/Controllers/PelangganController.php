@@ -10,19 +10,18 @@ class PelangganController extends BaseController
 {
     public function index()
     {
-            $PelangganModel = new PelangganModel();
-            $listpelanggan = $PelangganModel->getAllData();
-            return view('pelanggan',[
-                'listpelanggan' => $listpelanggan
-            ]);
-    
+        $PelangganModel = new PelangganModel();
+        $listpelanggan = $PelangganModel->getAllData();
+        return view('pelanggan', [
+            'listpelanggan' => $listpelanggan
+        ]);
     }
 
     public function tambah()
     { {
             if (!$this->validate([
                 'nama' => 'required',
-                'telp' => 'required',
+                'telp' => 'required|numeric',
                 'alamat' => 'required',
             ])) {
                 return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
@@ -39,20 +38,19 @@ class PelangganController extends BaseController
             $PelangganModel = new PelangganModel();
             $PelangganModel->SaveData($data);
             return redirect()->to('/pelanggan')->with('success', 'Data pelanggan Berhasil Ditambahkan');
-
         }
     }
     public function hapus()
     {
         $PelangganModel = new PelangganModel();
         $PelangganModel->DeleteData($this->request->getPost('id_pelanggan'));
-        return redirect()->to('/pelanggan')->with('success','Data Pelanggan Berhasil Dihapus');
+        return redirect()->to('/pelanggan')->with('success', 'Data Pelanggan Berhasil Dihapus');
     }
     public function edit()
     { {
             if (!$this->validate([
                 'nama' => 'required',
-                'telp' => 'required',
+                'telp' => 'required|numeric',
                 'alamat' => 'required',
             ])) {
                 return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
@@ -67,10 +65,8 @@ class PelangganController extends BaseController
 
             // memanggil model PelangganModel
             $PelangganModel = new PelangganModel();
-            $PelangganModel->UpdateData($this->request->getPost('id_pelanggan'),$data);
+            $PelangganModel->UpdateData($this->request->getPost('id_pelanggan'), $data);
             return redirect()->to('/pelanggan')->with('success', 'Data pelanggan Berhasil Diubah');
-
         }
     }
-    
 }
