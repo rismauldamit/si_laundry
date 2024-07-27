@@ -79,20 +79,19 @@
                       <input type="password" name="password" class="form-control" id="yourPassword" required>
                       <div class="invalid-feedback">Please enter your password!</div>
                     </div>
-                </div>
-                <div class="col-12">
-                  <button class="btn btn-primary w-100" type="submit">Login</button>
-                </div>
-                </form>
+                    <div class="col-12">
+                      <button class="btn btn-primary w-100" type="submit">Login</button>
+                    </div>
+                  </form>
 
+                </div>
               </div>
-            </div>
 
+            </div>
           </div>
         </div>
-    </div>
 
-    </section>
+      </section>
 
     </div>
   </main><!-- End #main -->
